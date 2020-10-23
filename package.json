@@ -1,0 +1,31 @@
+{
+  "name": "leave-form-system",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nerodroid/leave-form-system.git"
+  },
+  "author": "nerodroid",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nerodroid/leave-form-system/issues"
+  },
+  "homepage": "https://github.com/nerodroid/leave-form-system#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.9",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "validator": "^13.1.17"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
