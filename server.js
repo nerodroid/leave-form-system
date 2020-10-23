@@ -9,8 +9,6 @@ const profile = require('./routes/api/profile');
 
 
 
-
-
 //DN config
 const db = require('./config/keys').mongoURI;
 
