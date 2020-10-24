@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-// add new file git up
+// add new
 
 function App() {
   return (
