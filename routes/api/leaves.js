@@ -62,6 +62,16 @@ router.post(
       leaveType: req.body.leaveType,
       nameOfActor: req.body.nameOfActor,
       reason: req.body.reason,
+      dateTo: req.body.dateTo,
+      dateFrom: req.body.dateFrom,
+      apointmentDate: req.body.apointmentDate,
+      actorEmail: req.body.actorEmail, 
+      isHODApproved: req.body.isHODApproved,
+      isDeanApproved: req.body.isDeanApproved,
+      isARApproved: req.body.isARApproved,
+      location:req.body.location,
+      duration:req.body.duration,
+      institute: req.body.institute,
            
     });
 

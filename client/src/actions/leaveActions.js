@@ -34,7 +34,7 @@ export const addLeave = leaveData => dispatch => {
 export const getPosts = () => dispatch => {
   dispatch(setPostLoading());
   axios
-    .get('/api/posts')
+    .get('/api/leaves')
     .then(res =>
       dispatch({
         type: GET_POSTS,

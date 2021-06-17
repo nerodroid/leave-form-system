@@ -21,14 +21,16 @@ const LeaveSchema = new Schema({
     apointmentDate: {
         type: Date,
     },
-
     reason: {
         type: String,
     },
     nameOfActor: {
         type: String,
     },
-    actorEmail: { type: String, trim: true },
+    actorEmail: {      
+        type: String, 
+        trim: true 
+    },
     isHODApproved: {
         type: Boolean,
     },
@@ -38,6 +40,17 @@ const LeaveSchema = new Schema({
     isARApproved: {
         type: Boolean,
     },
+    location: {
+        type: String,
+    },
+    duration: {
+        type: String,
+    },
+    institute: {
+        type: String,
+    }
+
+
 
 });
 

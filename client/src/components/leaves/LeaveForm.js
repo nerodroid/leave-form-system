@@ -8,16 +8,16 @@ import SelectListGroup from '../common/SelectListGroup';
 import { addPost } from '../../actions/postActions';
 import { addLeave } from '../../actions/leaveActions';
 
+import DatePicker from 'react-date-picker';
+
 
 class LeaveForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      text: '',
+      
       errors: {},
-      dateTo:'',
-      dateFrom:'',
-      apointmentDate: '',
+    
       reason: '',
       nameOfActor: '',
       actorEmail: '',
@@ -27,11 +27,18 @@ class LeaveForm extends Component {
       isARApproved: false,
       location:'',
       duration:'',
-      institute: ''
+      institute: '',
+
+      dateTo: new Date(),
+      dateFrom: new Date(),
+      apointmentDate: new Date(),
     };
+
+    
 
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   componentWillReceiveProps(newProps) {
@@ -47,11 +54,20 @@ class LeaveForm extends Component {
 
     const newLeave = {
       name: user.name,
+      leaveType: this.state.leaveType,
       dateTo: this.state.dateTo,
       dateFrom: this.state.dateFrom,
-      leaveType: this.state.leaveType,
+      apointmentDate: this.state.apointmentDate,
+      reason: this.state.reason,      
       nameOfActor: this.state.nameOfActor,
-      reason: this.state.reason
+      actorEmail: this.state.actorEmail, 
+      isHODApproved: false,
+      isDeanApproved: false,
+      isARApproved: false,
+      location:this.state.location,
+      duration:this.state.duration,
+      institute: this.state.institute,
+      
     };
 
     this.props.addLeave(newLeave);
@@ -68,11 +84,31 @@ class LeaveForm extends Component {
     // this.setState({ text: '' });
   }
 
+
+ 
+
+
+
+
+
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
     // this.setState({ text: '' });
 
+    //const [startDate, setStartDate] = useState(new Date());
+
   }
+
+  handleChange(date) {
+
+
+
+    console.log(date)
+    this.setState({
+      startDate: date
+    })
+  }
+  
 
 //   ss = {
 //     user: {
@@ -119,32 +155,83 @@ class LeaveForm extends Component {
 //     this.setState({ leaveType });
 //     console.log(`Option selected:`, leaveType);
 //   }
-  
+
+    
 
   render() {
     const { errors } = this.state;
 
     const options = [
-        { label: '* Select Professional Status', value: 0 },
+        { label: '* Select a Leave type', value: 0 },
         { label: 'Vacation', value: 'vacation' },
         { label: 'Study', value: 'study' },
       ];
 
+
     return (
       <div className="post-form mb-3">
         <div className="card card-info">
-          <div className="card-header bg-info text-white">Say Somthing...</div>
+          <div className="card-header bg-info text-white">Request a New Leave...</div>
           <div className="card-body">
             <form onSubmit={this.onSubmit}>
               <div className="form-group">
-                <InputGroup
+
+
+              <SelectListGroup
+                  placeholder="Select Leave type"
+                  name="leaveType"
+                  value={this.state.leaveType}
+                  onChange={this.onChange}
+                  options={options}
+                  error={errors.status}
+                  info=""
+                />
+                {/* <InputGroup
                   placeholder="Date to"
                   name="dateTo"
                   value={this.state.dateTo}
                   onChange={this.onChange}
                   error={errors.text}
-                />
-                <InputGroup
+                /> */}
+
+                
+              
+            
+                 <div> <div className="form-text text-muted">Date to</div>
+
+                    <DatePicker className="form-text text-muted"
+                    
+                    onChange={this.handleChange}
+                    value={this.state.dateTo}
+                    
+                    />
+
+                </div>
+
+
+                <div> <div className="form-text text-muted">Date from</div>
+
+                    <DatePicker
+                    
+                    onChange={this.handleChange}
+                    value={this.state.dateFrom}
+                    />
+
+                </div>
+
+
+
+                <div> <div className="form-text text-muted">Appointment Date</div>
+
+                    <DatePicker
+                    
+                    onChange={this.handleChange}
+                    value={this.state.apointmentDate}
+                    />
+
+                </div>                
+
+                {/* <InputGroup
                   placeholder="Date from"
                   name="dateFrom"
                   value={this.state.dateFrom}
@@ -157,7 +244,7 @@ class LeaveForm extends Component {
                   value={this.state.apointmentDate}
                   onChange={this.onChange}
                   error={errors.text}
-                />
+                /> */}
                 <InputGroup
                   placeholder="Reason"
                   name="reason"
@@ -172,6 +259,7 @@ class LeaveForm extends Component {
                   onChange={this.onChange}
                   error={errors.text}
                 />
+               
                 <InputGroup
                   placeholder="Actor Email"
                   name="actorEmail"
@@ -179,22 +267,7 @@ class LeaveForm extends Component {
                   onChange={this.onChange}
                   error={errors.text}
                 />
-                <InputGroup
-                  placeholder="Actor Email"
-                  name="actorEmail"
-                  value={this.state.actorEmail}
-                  onChange={this.onChange}
-                  error={errors.text}
-                />
-                <SelectListGroup
-                  placeholder="Select Leave type"
-                  name="leaveType"
-                  value={this.state.leaveType}
-                  onChange={this.onChange}
-                  options={options}
-                  error={errors.status}
-                  info="Give us an idea of where you are at in your career"
-                />
+                
                 {this.state.leaveType === 'vacation' && 
                     <div>
                         <InputGroup
