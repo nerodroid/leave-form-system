@@ -59,6 +59,7 @@ router.post(
 
     const newLeave = new Leave({
       user: req.user.id,
+      leaveType: req.body.leaveType,
       nameOfActor: req.body.nameOfActor,
       reason: req.body.reason,
            

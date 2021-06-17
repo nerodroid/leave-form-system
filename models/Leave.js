@@ -8,6 +8,10 @@ const LeaveSchema = new Schema({
         ref: 'users'
     },
 
+    leaveType: {
+        type:String,
+    },
+
     dateTo: {
         type: Date,
     },
