@@ -8,24 +8,22 @@ import InputGroup from '../common/InputGroup';
 import SelectListGroup from '../common/SelectListGroup';
 import { createProfile } from '../../actions/profileActions';
 
+
+
+
 class CreateProfile extends Component {
   constructor(props) {
     super(props);
     this.state = {
       displaySocialInputs: false,
-      handle: '',
-      company: '',
-      website: '',
-      location: '',
-      status: '',
-      skills: '',
-      githubusername: '',
-      bio: '',
-      twitter: '',
-      facebook: '',
-      linkedin: '',
-      youtube: '',
-      instagram: '',
+      firstName: '',
+      lastName: '',
+      fullName: '',
+      faculty: '',
+      gender: '',
+      address: '',
+      dob: '',
+      
       errors: {}
     };
 
@@ -43,19 +41,31 @@ class CreateProfile extends Component {
     e.preventDefault();
 
     const profileData = {
-      handle: this.state.handle,
-      company: this.state.company,
-      website: this.state.website,
-      location: this.state.location,
-      status: this.state.status,
-      skills: this.state.skills,
-      githubusername: this.state.githubusername,
-      bio: this.state.bio,
-      twitter: this.state.twitter,
-      facebook: this.state.facebook,
-      linkedin: this.state.linkedin,
-      youtube: this.state.youtube,
-      instagram: this.state.instagram
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
+      fullName: this.state.fullName,
+      faculty: this.state.faculty,
+      phoneNo: this.state.phoneNo,
+      gender: this.state.gender,
+      address: this.state.address,
+      dob: this.state.dob,
+      
+
+
+
+      // handle: this.state.handle,
+      // company: this.state.company,
+      // website: this.state.website,
+      // location: this.state.location,
+      // status: this.state.status,
+      // skills: this.state.skills,
+      // githubusername: this.state.githubusername,
+      // bio: this.state.bio,
+      // twitter: this.state.twitter,
+      // facebook: this.state.facebook,
+      // linkedin: this.state.linkedin,
+      // youtube: this.state.youtube,
+      // instagram: this.state.instagram
     };
 
     this.props.createProfile(profileData, this.props.history);
@@ -71,67 +81,67 @@ class CreateProfile extends Component {
     let socialInputs;
 
     if (displaySocialInputs) {
-      socialInputs = (
-        <div>
-          <InputGroup
-            placeholder="Twitter Profile URL"
-            name="twitter"
-            icon="fab fa-twitter"
-            value={this.state.twitter}
-            onChange={this.onChange}
-            error={errors.twitter}
-          />
+      // socialInputs = (
+      //   <div>
+      //     <InputGroup
+      //       placeholder="Twitter Profile URL"
+      //       name="twitter"
+      //       icon="fab fa-twitter"
+      //       value={this.state.twitter}
+      //       onChange={this.onChange}
+      //       error={errors.twitter}
+      //     />
 
-          <InputGroup
-            placeholder="Facebook Page URL"
-            name="facebook"
-            icon="fab fa-facebook"
-            value={this.state.facebook}
-            onChange={this.onChange}
-            error={errors.facebook}
-          />
+      //     <InputGroup
+      //       placeholder="Facebook Page URL"
+      //       name="facebook"
+      //       icon="fab fa-facebook"
+      //       value={this.state.facebook}
+      //       onChange={this.onChange}
+      //       error={errors.facebook}
+      //     />
 
-          <InputGroup
-            placeholder="Linkedin Profile URL"
-            name="linkedin"
-            icon="fab fa-linkedin"
-            value={this.state.linkedin}
-            onChange={this.onChange}
-            error={errors.linkedin}
-          />
+      //     <InputGroup
+      //       placeholder="Linkedin Profile URL"
+      //       name="linkedin"
+      //       icon="fab fa-linkedin"
+      //       value={this.state.linkedin}
+      //       onChange={this.onChange}
+      //       error={errors.linkedin}
+      //     />
 
-          <InputGroup
-            placeholder="YouTube Channel URL"
-            name="youtube"
-            icon="fab fa-youtube"
-            value={this.state.youtube}
-            onChange={this.onChange}
-            error={errors.youtube}
-          />
+      //     <InputGroup
+      //       placeholder="YouTube Channel URL"
+      //       name="youtube"
+      //       icon="fab fa-youtube"
+      //       value={this.state.youtube}
+      //       onChange={this.onChange}
+      //       error={errors.youtube}
+      //     />
 
-          <InputGroup
-            placeholder="Instagram Page URL"
-            name="instagram"
-            icon="fab fa-instagram"
-            value={this.state.instagram}
-            onChange={this.onChange}
-            error={errors.instagram}
-          />
-        </div>
-      );
+      //     <InputGroup
+      //       placeholder="Instagram Page URL"
+      //       name="instagram"
+      //       icon="fab fa-instagram"
+      //       value={this.state.instagram}
+      //       onChange={this.onChange}
+      //       error={errors.instagram}
+      //     />
+      //   </div>
+      // );
     }
 
     // Select options for status
-    const options = [
-      { label: '* Select Professional Status', value: 0 },
-      { label: 'Developer', value: 'Developer' },
-      { label: 'Junior Developer', value: 'Junior Developer' },
-      { label: 'Senior Developer', value: 'Senior Developer' },
-      { label: 'Manager', value: 'Manager' },
-      { label: 'Student or Learning', value: 'Student or Learning' },
-      { label: 'Instructor or Teacher', value: 'Instructor or Teacher' },
-      { label: 'Intern', value: 'Intern' },
-      { label: 'Other', value: 'Other' }
+    const facultyOptions = [
+      { label: 'Science', value: 'science' },
+      { label: 'Management', value: 'management' },
+     
+    ];
+
+    const genderOptions = [
+      { label: 'Male', value: 'male' },
+      { label: 'Female', value: 'female' },
+     
     ];
 
     return (
@@ -139,13 +149,112 @@ class CreateProfile extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
-              <h1 className="display-4 text-center">Create Your Profile</h1>
+              <h1 className="display-4 text-center">Complete Your Profile</h1>
               <p className="lead text-center">
-                Let's get some information to make your profile stand out
+                Fill these fields 
               </p>
               <small className="d-block pb-3">* = required fields</small>
               <form onSubmit={this.onSubmit}>
+
                 <TextFieldGroup
+                  placeholder="* firstName"
+                  name="firstName"
+                  value={this.state.firstName}
+                  onChange={this.onChange}
+                  error={errors.firstName}
+                  info="First Name"
+                />
+
+                <TextFieldGroup
+                  placeholder="* lastName"
+                  name="lastName"
+                  value={this.state.lastName}
+                  onChange={this.onChange}
+                  error={errors.lastName}
+                  info="Last Name"
+                />
+
+                <TextFieldGroup
+                  placeholder="* fullName"
+                  name="fullName"
+                  value={this.state.firstName}
+                  onChange={this.onChange}
+                  error={errors.firstName}
+                  info="Full Name"
+                />
+
+                {/* <TextFieldGroup
+                  placeholder="* faculty"
+                  name="faculty"
+                  value={this.state.firstName}
+                  onChange={this.onChange}
+                  error={errors.faculty}
+                  info="Choose your faculty"
+                /> */}
+
+                <SelectListGroup
+                  placeholder="Select Faculty"
+                  name="faculty"
+                  value={this.state.faculty}
+                  onChange={this.onChange}
+                  options={facultyOptions}
+                  error={errors.faculty}
+                  info="Choose your faculty"
+                />
+
+
+                
+
+                <TextFieldGroup
+                  placeholder="* phoneNo"
+                  name="phoneNo"
+                  value={this.state.phoneNo}
+                  onChange={this.onChange}
+                  error={errors.phoneNo}
+                  info="Phone Number"
+                />
+
+                {/* <TextFieldGroup
+                  placeholder="* gender"
+                  name="gender"
+                  value={this.state.gender}
+                  onChange={this.onChange}
+                  error={errors.gender}
+                  info="gender"
+                /> */}
+
+
+                <SelectListGroup
+                  placeholder="Select Gender"
+                  name="gender"
+                  value={this.state.gender}
+                  onChange={this.onChange}
+                  options={genderOptions}
+                  error={errors.gender}
+                  info="Choose your Gender"
+                />
+
+                <TextFieldGroup
+                  placeholder="* address"
+                  name="address"
+                  value={this.state.address}
+                  onChange={this.onChange}
+                  error={errors.address}
+                  info="Address"
+                />
+
+                <TextFieldGroup
+                  placeholder="* dob"
+                  name="dob"
+                  value={this.state.dob}
+                  onChange={this.onChange}
+                  error={errors.dob}
+                  info="Date of Birth"
+                />
+
+    
+
+                {/* <TextFieldGroup
                   placeholder="* Profile Handle"
                   name="handle"
                   value={this.state.handle}
@@ -210,9 +319,9 @@ class CreateProfile extends Component {
                   onChange={this.onChange}
                   error={errors.bio}
                   info="Tell us a little about yourself"
-                />
+                /> */}
 
-                <div className="mb-3">
+                {/* <div className="mb-3">
                   <button
                     type="button"
                     onClick={() => {
@@ -226,7 +335,7 @@ class CreateProfile extends Component {
                   </button>
                   <span className="text-muted">Optional</span>
                 </div>
-                {socialInputs}
+                {socialInputs} */}
                 <input
                   type="submit"
                   value="Submit"
