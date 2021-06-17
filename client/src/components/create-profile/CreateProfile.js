@@ -7,7 +7,7 @@ import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
 import InputGroup from '../common/InputGroup';
 import SelectListGroup from '../common/SelectListGroup';
 import { createProfile } from '../../actions/profileActions';
-
+import DatePicker from 'react-date-picker';
 
 
 
@@ -22,13 +22,15 @@ class CreateProfile extends Component {
       faculty: '',
       gender: '',
       address: '',
-      dob: '',
+      phoneNo:'',
+      dob:  new Date(),
       
       errors: {}
     };
 
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -70,6 +72,15 @@ class CreateProfile extends Component {
 
     this.props.createProfile(profileData, this.props.history);
   }
+
+
+  handleChange(date) {
+    console.log(date)
+    this.setState({
+      startDate: date
+    })
+  }
+
 
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
@@ -177,9 +188,9 @@ class CreateProfile extends Component {
                 <TextFieldGroup
                   placeholder="* fullName"
                   name="fullName"
-                  value={this.state.firstName}
+                  value={this.state.fullName}
                   onChange={this.onChange}
-                  error={errors.firstName}
+                  error={errors.fullName}
                   info="Full Name"
                 />
 
@@ -243,15 +254,23 @@ class CreateProfile extends Component {
                   info="Address"
                 />
 
-                <TextFieldGroup
+                {/* <TextFieldGroup
                   placeholder="* dob"
                   name="dob"
                   value={this.state.dob}
                   onChange={this.onChange}
                   error={errors.dob}
                   info="Date of Birth"
-                />
+                /> */}
 
+                  <div> 
+                     <div 
+                        className="form-text text-muted">Date of Birth
+                     </div>
+                      <DatePicker className="form-text text-muted"
+                        onChange={this.handleChange}
+                        value={this.state.dob}  />
+                  </div>
     
 
                 {/* <TextFieldGroup
