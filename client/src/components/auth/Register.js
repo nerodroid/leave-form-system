@@ -70,9 +70,9 @@ class Register extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
-              <h1 className="display-4 text-center">Sign Up</h1>
+              <h1 className="display-4 text-center">Sign Up a Account</h1>
               <p className="lead text-center">
-                Create your account
+                Create user account
               </p>
               <form noValidate onSubmit={this.onSubmit}>
                 <TextFieldGroup
