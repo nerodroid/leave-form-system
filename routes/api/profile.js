@@ -124,7 +124,8 @@ router.post(
     if (req.body.fullName) profileFields.fullName = req.body.fullName;
     if (req.body.faculty) profileFields.faculty = req.body.faculty;
     if (req.body.gender) profileFields.bio = req.body.gender;
-    if (req.body.address) profileFields.status = req.body.address;
+    if (req.body.address) profileFields.address = req.body.address;
+    if (req.body.phoneNo) profileFields.phoneNo = req.body.phoneNo;
     if (req.body.dob)profileFields.dob = req.body.dob;
     // Skills - Spilt into array
     // if (typeof req.body.skills !== 'undefined') {
