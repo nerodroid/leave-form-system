@@ -5,11 +5,14 @@ import PostForm from './PostForm';
 import PostFeed from './PostFeed';
 import Spinner from '../common/Spinner';
 import { getPosts } from '../../actions/postActions';
+import { getLeaves } from '../../actions/leaveActions';
+
+
 import LeaveForm from './LeaveForm';
 
 class Posts extends Component {
   componentDidMount() {
-    this.props.getPosts();
+    this.props.getLeaves();
   }
 
   render() {
@@ -39,7 +42,7 @@ class Posts extends Component {
 }
 
 Posts.propTypes = {
-  getPosts: PropTypes.func.isRequired,
+  getLeaves: PropTypes.func.isRequired,
   post: PropTypes.object.isRequired
 };
 
@@ -47,4 +50,4 @@ const mapStateToProps = state => ({
   post: state.post
 });
 
-export default connect(mapStateToProps, { getPosts })(Posts);
+export default connect(mapStateToProps, { getLeaves })(Posts);

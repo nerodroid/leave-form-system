@@ -18,14 +18,14 @@ class PostItem extends Component {
     this.props.removeLike(id);
   }
 
-  findUserLike(likes) {
-    const { auth } = this.props;
-    if (likes.filter(like => like.user === auth.user.id).length > 0) {
-      return true;
-    } else {
-      return false;
-    }
-  }
+  // findUserLike(likes) {
+  //   const { auth } = this.props;
+  //   if (likes.filter(like => like.user === auth.user.id).length > 0) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // }
 
   render() {
     const { post, auth, showActions } = this.props;
@@ -35,17 +35,26 @@ class PostItem extends Component {
         <div className="row">
           <div className="col-md-2">
             <a href="profile.html">
-              <img
+              {/* <img
                 className="rounded-circle d-none d-md-block"
                 src={post.avatar}
                 alt=""
-              />
+              /> */}
             </a>
             <br />
-            <p className="text-center">{post.name}</p>
+            <p className="text-center">{post.firstName}</p>
           </div>
           <div className="col-md-10">
-            <p className="lead">{post.text}</p>
+            <p className="lead">Reason : {post.reason}</p>
+            <p className="lead">Name of Actor : {post.nameOfActor}</p>
+            <p className="lead">actor email : {post.actorEmail}</p>
+            <p className="lead">leave type : {post.leaveType}</p>
+            <p className="lead">HOD Approval : {post.isHODApproved.toString()}</p>
+            <p className="lead">Dean Approval : {post.isDeanApproved.toString()}</p>
+            <p className="lead">AR Approval : {post.isARApproved.toString()}</p>
+            <p className="lead">Location to : {post.location}</p>
+            <p className="lead">Duration : {post.duration}</p>
+            <p className="lead">Institute : {post.institute}</p>
             {showActions ? (
               <span>
                 <button
@@ -54,28 +63,29 @@ class PostItem extends Component {
                   className="btn btn-light mr-1"
                 >
                   <i
-                    className={classnames('fas fa-thumbs-up', {
-                      'text-info': this.findUserLike(post.likes)
-                    })}
+                    // className={classnames('fas fa-thumbs-up', {
+                    //   'text-info': this.findUserLike(post.likes)
+                    // })}
                   />
-                  <span className="badge badge-light">{post.likes.length}</span>
+                  {/* <span className="badge badge-light">{post.likes.length}</span> */}
                 </button>
-                <button
+                {/* <button
                   onClick={this.onUnlikeClick.bind(this, post._id)}
                   type="button"
                   className="btn btn-light mr-1"
                 >
                   <i className="text-secondary fas fa-thumbs-down" />
-                </button>
-                <Link to={`/post/${post._id}`} className="btn btn-info mr-1">
+                </button> */}
+                {/* <Link to={`/post/${post._id}`} className="btn btn-info mr-1">
                   Comments
-                </Link>
+                </Link> */}
                 {post.user === auth.user.id ? (
+
                   <button
                     onClick={this.onDeleteClick.bind(this, post._id)}
                     type="button"
                     className="btn btn-danger mr-1"
-                  >
+                  >delete Leave Aplication 
                     <i className="fas fa-times" />
                   </button>
                 ) : null}

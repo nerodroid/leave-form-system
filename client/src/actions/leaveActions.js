@@ -31,7 +31,7 @@ export const addLeave = leaveData => dispatch => {
 };
 
 // Get Posts
-export const getPosts = () => dispatch => {
+export const getLeaves= () => dispatch => {
   dispatch(setPostLoading());
   axios
     .get('/api/leaves')
@@ -90,7 +90,7 @@ export const deletePost = id => dispatch => {
 export const addLike = id => dispatch => {
   axios
     .post(`/api/posts/like/${id}`)
-    .then(res => dispatch(getPosts()))
+    .then(res => dispatch(getLeaves()))
     .catch(err =>
       dispatch({
         type: GET_ERRORS,
@@ -103,7 +103,7 @@ export const addLike = id => dispatch => {
 export const removeLike = id => dispatch => {
   axios
     .post(`/api/posts/unlike/${id}`)
-    .then(res => dispatch(getPosts()))
+    .then(res => dispatch(getLeaves()))
     .catch(err =>
       dispatch({
         type: GET_ERRORS,
