@@ -24,6 +24,7 @@ class CreateProfile extends Component {
       gender: '',
       address: '',
       phoneNo:'',
+      empId:'',
       dob:  new Date(),
       // handle: '',
       // company: '',
@@ -80,6 +81,7 @@ class CreateProfile extends Component {
       profile.gender = !isEmpty(profile.gender) ? profile.gender :'';
       profile.address = !isEmpty(profile.address) ? profile.address: '';
       profile.dob = !isEmpty(profile.dob) ? profile.dob :'';  
+      profile.empId = !isEmpty(profile.empId) ? profile.empId :'';  
 
 
       // profile.facebook = !isEmpty(profile.social.facebook)
@@ -105,6 +107,7 @@ class CreateProfile extends Component {
         gender: profile.gender,
         address: profile.address,
         dob: profile.dob,
+        empId:profile.empId,
 
 
         // handle: profile.handle,
@@ -136,6 +139,7 @@ class CreateProfile extends Component {
       gender: this.state.gender,
       address: this.state.address,
       dob: this.state.dob,
+      empId:this.state.empId,
 
 
       // handle: this.state.handle,
@@ -277,6 +281,16 @@ class CreateProfile extends Component {
                   onChange={this.onChange}
                   error={errors.firstName}
                   info="Full Name"
+                />
+
+
+                <TextFieldGroup
+                  placeholder="* Employee ID"
+                  name="empId"
+                  value={this.state.empId}
+                  onChange={this.onChange}
+                  error={errors.empId}
+                  info="empId"
                 />
 
                 {/* <TextFieldGroup

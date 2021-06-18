@@ -20,6 +20,11 @@ const ProfileSchema = new Schema({
     type: String,
   
   },
+  empId: {
+    type: String,
+    
+  },
+
   faculty: {
     type: String,
     

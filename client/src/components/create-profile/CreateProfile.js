@@ -23,6 +23,7 @@ class CreateProfile extends Component {
       gender: '',
       address: '',
       phoneNo:'',
+      empId:'',
       dob:  new Date(),
       
       errors: {}
@@ -51,6 +52,7 @@ class CreateProfile extends Component {
       gender: this.state.gender,
       address: this.state.address,
       dob: this.state.dob,
+      empId: this.state.empId,
       
 
 
@@ -192,6 +194,16 @@ class CreateProfile extends Component {
                   onChange={this.onChange}
                   error={errors.fullName}
                   info="Full Name"
+                />
+
+
+                 <TextFieldGroup
+                  placeholder="* Employee ID"
+                  name="empId"
+                  value={this.state.empId}
+                  onChange={this.onChange}
+                  error={errors.empId}
+                  info="empId"
                 />
 
                 {/* <TextFieldGroup

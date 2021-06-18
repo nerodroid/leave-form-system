@@ -24,6 +24,7 @@ import Profiles from './components/profiles/Profiles';
 import Profile from './components/profile/Profile';
 import Posts from './components/posts/Posts';
 import Leaves from './components/leaves/Leaves';
+import LeaveFeed from './components/leaves/LeaveFeed';
 import Post from './components/post/Post';
 import NotFound from './components/not-found/NotFound';
 
@@ -57,7 +58,7 @@ class App extends Component {
         <Router>
           <div className="App">
             <Navbar />
-            <Route exact path="/" component={Landing} />
+            <Route exact path="/" component={Login}/>
             <div className="container">
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
@@ -95,7 +96,11 @@ class App extends Component {
                 />
               </Switch>
               <Switch>
-                <PrivateRoute exact path="/feed" component={Posts} />
+                <PrivateRoute exact path="/feed" component={LeaveFeed} />
+              </Switch>
+
+              <Switch>
+                <PrivateRoute exact path="/addpost" component={Posts} />
               </Switch>
 
               <Switch>

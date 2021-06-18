@@ -19,7 +19,7 @@ class Navbar extends Component {
       <ul className="navbar-nav ml-auto">
         <li className="nav-item">
           <Link className="nav-link" to="/feed">
-            Leaves Feed
+            My Leaves
           </Link>
         </li>
 
@@ -32,7 +32,7 @@ class Navbar extends Component {
 
         <li className="nav-item">
           <Link className="nav-link" to="/leaves">
-            Leaves
+            Request Leave
           </Link>
         </li>
         <li className="nav-item">
