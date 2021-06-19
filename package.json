@@ -1,6 +1,7 @@
 {
-  "name": "leave-form-system",
+  "name": "devconnector",
   "version": "1.0.0",
+  "description": "Social network for developers",
   "main": "server.js",
   "scripts": {
     "client-install": "npm install --prefix client",
@@ -9,29 +10,27 @@
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nerodroid/leave-form-system.git"
-  },
-  "author": "nerodroid",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/nerodroid/leave-form-system/issues"
-  },
-  "homepage": "https://github.com/nerodroid/leave-form-system#readme",
+  "author": "Brad Traversy",
+  "license": "MIT",
   "dependencies": {
-    "body-parser": "^1.19.0",
-    "concurrently": "^5.3.0",
-    "express": "^4.17.1",
-    "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.10.9",
-    "passport": "^0.4.1",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.2",
+    "concurrently": "^3.5.1",
+    "express": "^4.16.3",
+    "gravatar": "^1.6.0",
+    "jsonwebtoken": "^8.2.0",
+    "mongoose": "^5.0.12",
+    "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
-    "react-scripts": "^4.0.0",
-    "validator": "^13.1.17"
+    "react-bootstrap": "^1.6.1",
+    "react-date-picker": "^8.2.0",
+    "react-datepicker": "^4.1.1",
+    "validator": "^9.4.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.6"
-  },
-  "description": ""
+    "@iconify-icons/dashicons": "^1.1.0",
+    "@iconify-icons/fa-solid": "^1.1.1",
+    "@iconify/react": "^1.1.4",
+    "nodemon": "^1.17.3"
+  }
 }
