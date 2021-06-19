@@ -85,6 +85,27 @@ export const deletePost = id => dispatch => {
     );
 };
 
+export const approveLeave = (id, userType) => dispatch => {
+  console.log('ddd', id)
+  axios
+    .put(`/api/leaves/approve/${id}/${userType}`)
+    .then(res =>
+      {
+        console.log("approveddd")
+        dispatch({
+          type: DELETE_POST,
+          payload: id
+        })
+      }
+    )
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
+};
+
 // Add Like
 export const addLike = id => dispatch => {
   axios

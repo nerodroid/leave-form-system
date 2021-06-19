@@ -63,6 +63,7 @@ class Register extends Component {
       { label: 'A R', value: 'a-r' },
       { label: 'Academic', value: 'academic' },
       { label: 'Non-Academic', value: 'non-academic' },
+      { label: 'HOD', value: 'hod' },
       
     ];
 

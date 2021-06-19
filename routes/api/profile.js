@@ -128,6 +128,9 @@ router.post(
     if (req.body.phoneNo) profileFields.phoneNo = req.body.phoneNo;
     if (req.body.dob)profileFields.dob = req.body.dob;
     if (req.body.empId)profileFields.empId = req.body.empId;
+
+
+    
     // Skills - Spilt into array
     // if (typeof req.body.skills !== 'undefined') {
     //   profileFields.skills = req.body.skills.split(',');

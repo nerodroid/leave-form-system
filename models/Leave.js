@@ -33,12 +33,15 @@ const LeaveSchema = new Schema({
     },
     isHODApproved: {
         type: Boolean,
+        default:false
     },
     isDeanApproved: {
         type: Boolean,
+        default:false
     },
     isARApproved: {
         type: Boolean,
+        default:false
     },
     location: {
         type: String,

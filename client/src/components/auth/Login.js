@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { loginUser } from '../../actions/authActions';
 import TextFieldGroup from '../common/TextFieldGroup';
+import store from '../../store';
 
 class Login extends Component {
   constructor() {
@@ -25,7 +26,16 @@ class Login extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.auth.isAuthenticated) {
-      this.props.history.push('/dashboard');
+      console.log("store.getState(2)",store.getState().auth.user)
+      
+      const userType = store.getState().auth.user.userType;
+      if(userType === 'academic' || userType === 'non-academic') {
+        this.props.history.push('/dashboard');
+      } else if(userType === 'dean'){
+        this.props.history.push('/dean-dashboard');
+      } else if(userType === 'a-r'){
+        this.props.history.push('/dean-dashboard');
+      }
     }
 
     if (nextProps.errors) {

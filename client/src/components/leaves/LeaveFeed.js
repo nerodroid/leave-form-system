@@ -4,15 +4,23 @@ import { connect } from 'react-redux';
 import PostForm from './PostForm';
 import PostFeed from './PostFeed';
 import Spinner from '../common/Spinner';
-import { getPosts } from '../../actions/postActions';
-import { getLeaves } from '../../actions/leaveActions';
+//import { getPosts } from '../../actions/postActions';
+import { getLeaves, getAllLeaves } from '../../actions/leaveActions';
 
 
-import LeaveForm from './LeaveForm';
+//import LeaveForm from './LeaveForm';
 
 class Posts extends Component {
   componentDidMount() {
-    this.props.getLeaves();
+
+    const { user } = this.props.auth;
+    console.log(user)
+    if(user.userType === 'dean' || user.userType === 'a-r' || user.userType === 'hod'){
+      this.props.getAllLeaves(user.userType);
+    }else {
+      this.props.getLeaves(user.id);
+    }
+    
   }
 
   render() {
@@ -47,7 +55,8 @@ Posts.propTypes = {
 };
 
 const mapStateToProps = state => ({
+  auth: state.auth,
   post: state.post
 });
 
-export default connect(mapStateToProps, { getLeaves })(Posts);
+export default connect(mapStateToProps, { getLeaves, getAllLeaves })(Posts);

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
 import { Link } from 'react-router-dom';
-import { deletePost, addLike, removeLike } from '../../actions/postActions';
+import { deletePost, addLike, removeLike, approveLeave } from '../../actions/postActions';
 
 class PostItem extends Component {
   onDeleteClick(id) {
@@ -16,6 +16,12 @@ class PostItem extends Component {
 
   onUnlikeClick(id) {
     this.props.removeLike(id);
+  }
+
+  onClickApprove = (id) => {
+    const { auth} = this.props;
+    console.log(id)
+    this.props.approveLeave(id, auth.user.userType)
   }
 
   // findUserLike(likes) {
@@ -42,15 +48,18 @@ class PostItem extends Component {
               /> */}
             </a>
             <br />
-            <p className="text-center">{post.firstName}</p>
+            
           </div>
           <div className="col-md-10">
+
+          
             <p className="lead">Reason : {post.reason}</p>
             <p className="lead">Name of Actor : {post.nameOfActor}</p>
             <p className="lead">actor email : {post.actorEmail}</p>
             <p className="lead">leave type : {post.leaveType}</p>
-            <p className="lead">HOD Approval : {post.isHODApproved.toString()}</p>
+            
             <p className="lead">Dean Approval : {post.isDeanApproved.toString()}</p>
+            <p className="lead">HOD Approval : {post.isHODApproved.toString()}</p>
             <p className="lead">AR Approval : {post.isARApproved.toString()}</p>
             <p className="lead">Location to : {post.location}</p>
             <p className="lead">Duration : {post.duration}</p>
@@ -79,14 +88,43 @@ class PostItem extends Component {
                 {/* <Link to={`/post/${post._id}`} className="btn btn-info mr-1">
                   Comments
                 </Link> */}
+
+                  {auth.user.userType === 'dean' && 
+                    <button
+                      onClick={this.onClickApprove.bind(this, post._id)}
+                      type="button"
+                      className="btn btn-danger mr-1"> 
+                      <i className="fas fa-times" />
+                        Approve Dean
+                    </button>
+                  }
+                  {auth.user.userType === 'a-r' && 
+                    <button
+                      onClick={this.onClickApprove.bind(this, post._id)}
+                      type="button"
+                      className="btn btn-danger mr-1"> 
+                      <i className="fas fa-times" />
+                        Approve AR
+                    </button>
+                  }
+                  {auth.user.userType === 'hod' && 
+                    <button
+                      onClick={this.onClickApprove.bind(this, post._id)}
+                      type="button"
+                      className="btn btn-danger mr-1"> 
+                      <i className="fas fa-times" />
+                        Approve HOD
+                    </button>
+                  }
                 {post.user === auth.user.id ? (
 
                   <button
                     onClick={this.onDeleteClick.bind(this, post._id)}
                     type="button"
                     className="btn btn-danger mr-1"
-                  >delete Leave Aplication 
+                  > 
                     <i className="fas fa-times" />
+                      delete Leave Aplication
                   </button>
                 ) : null}
               </span>
@@ -114,6 +152,6 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(mapStateToProps, { deletePost, addLike, removeLike })(
+export default connect(mapStateToProps, { deletePost, addLike, removeLike, approveLeave })(
   PostItem
 );
