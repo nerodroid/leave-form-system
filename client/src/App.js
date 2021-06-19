@@ -28,6 +28,7 @@ import LeaveFeed from './components/leaves/LeaveFeed';
 import Post from './components/post/Post';
 import NotFound from './components/not-found/NotFound';
 
+
 import './App.css';
 
 // Check for token
@@ -109,6 +110,7 @@ class App extends Component {
               <Switch>
                 <PrivateRoute exact path="/post/:id" component={Post} />
               </Switch>
+          
               <Route exact path="/not-found" component={NotFound} />
             </div>
             <Footer />

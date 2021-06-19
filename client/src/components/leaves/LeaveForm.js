@@ -196,7 +196,7 @@ class LeaveForm extends Component {
             
                  <div> <div className="form-text text-muted">Date to</div>
 
-                    <DatePicker 
+                    <DatePicker className="form-text text-muted"
                     
                     onChange={this.handleChange}
                     value={this.state.dateTo}
