@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { logoutUser } from '../../actions/authActions';
 import { clearCurrentProfile } from '../../actions/profileActions';
+import { Col, Image } from 'react-bootstrap';
 
 class Navbar extends Component {
   onLogoutClick(e) {
@@ -77,8 +78,11 @@ class Navbar extends Component {
     return (
       <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
         <div className="container">
+        <Col xs={6} md={4}>
+      <Image src="holder.js/171x180" roundedCircle />
+    </Col>
           <Link className="navbar-brand" to="/">
-            Leave Form System
+            University Of Jaffna
           </Link>
           <button
             className="navbar-toggler"
