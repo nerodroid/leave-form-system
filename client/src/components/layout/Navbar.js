@@ -19,7 +19,7 @@ class Navbar extends Component {
       <ul className="navbar-nav ml-auto">
         <li className="nav-item">
           <Link className="nav-link" to="/feed">
-            {user.userType === 'dean' ? 'Leaves' : 'My Leaves'}
+            {(user.userType === 'dean' || user.userType === 'hod' || user.userType === 'a-r' ) ? 'Leaves' : 'My Leaves'}
           </Link>
         </li>
 

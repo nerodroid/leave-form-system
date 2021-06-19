@@ -58,9 +58,9 @@ class PostItem extends Component {
             <p className="lead">actor email : {post.actorEmail}</p>
             <p className="lead">leave type : {post.leaveType}</p>
             
-            <p className="lead">Dean Approval : {post.isDeanApproved.toString()}</p>
-            <p className="lead">HOD Approval : {post.isHODApproved.toString()}</p>
-            <p className="lead">AR Approval : {post.isARApproved.toString()}</p>
+            <p className="lead">Dean Approval : {post && post.isDeanApproved.toString()}</p>
+            <p className="lead">HOD Approval : {post && post.isHODApproved.toString()}</p>
+            <p className="lead">AR Approval : {post && post.isARApproved.toString()}</p>
             <p className="lead">Location to : {post.location}</p>
             <p className="lead">Duration : {post.duration}</p>
             <p className="lead">Institute : {post.institute}</p>
