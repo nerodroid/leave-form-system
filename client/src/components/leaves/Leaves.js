@@ -6,10 +6,13 @@ import PostFeed from './PostFeed';
 import Spinner from '../common/Spinner';
 import { getPosts } from '../../actions/postActions';
 import LeaveForm from './LeaveForm';
+import LeaveFeed from './LeaveFeed'
+import { getLeaves, getAllLeaves } from '../../actions/leaveActions';
 
 class Posts extends Component {
   componentDidMount() {
-    this.props.getPosts();
+    const { user } = this.props.auth;
+    this.props.getLeaves(user.id);
   }
 
   render() {
@@ -19,7 +22,7 @@ class Posts extends Component {
     if (posts === null || loading) {
       postContent = <Spinner />;
     } else {
-      postContent = <PostFeed posts={posts} />;
+      postContent = <LeaveFeed />;
     }
 
     return (
@@ -44,7 +47,8 @@ Posts.propTypes = {
 };
 
 const mapStateToProps = state => ({
+  auth: state.auth,
   post: state.post
 });
 
-export default connect(mapStateToProps, { getPosts })(Posts);
+export default connect(mapStateToProps, { getLeaves })(Posts);

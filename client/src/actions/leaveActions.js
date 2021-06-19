@@ -14,6 +14,7 @@ import {
 // Add Post
 export const addLeave = leaveData => dispatch => {
   dispatch(clearErrors());
+  console.log("leaveData",leaveData)
   axios
     .post('/api/leaves', leaveData)
     .then(res =>
