@@ -18,52 +18,15 @@ const validateLeaveInput = require('../../validation/leave');
 // @access  Public
 router.get('/test', (req, res) => res.json({ msg: 'Leave Works' }));
 
-// // @route   GET api/leave
-// // @desc    Get leave
-// // @access  Public
-// router.get('/', (req, res) => {
-//   Leave.find( )
-//     .sort({ date: -1 })
-//     .then(leaves => res.json(leaves))
-//     .catch(err => res.status(404).json({ noleavesfound: 'No leaves found' }));
-// });
-
 // @route   GET api/leave
 // @desc    Get leave
 // @access  Public
-router.get('/:userType', (req, res) => {
-  
-  if(req.params.userType === 'hod'){
-    Leave.find( )
+router.get('/', (req, res) => {
+  Leave.find()
     .sort({ date: -1 })
-    .then(leaves => res.json(leaves))
-    .catch(err => res.status(404).json({ noleavesfound: 'No leaves found' }));
-  }
-   else if(req.params.userType === 'dean') {
-    Leave.find({isHODApproved: true})
-    .sort({ date: -1 })
-    .then(leaves => res.json(leaves))
-    .catch(err => res.status(404).json({ noleavesfound: 'No leaves found' }));
-  }
-   else if(req.params.userType === 'a-r') {
-    Leave.find({isDeanApproved: true})
-    .sort({ date: -1 })
-    .then(leaves => res.json(leaves))
-    .catch(err => res.status(404).json({ noleavesfound: 'No leaves found' }));
-  }
-    
-});
-
-router.get('/getLeaves/:userId', (req, res) => {
-  console.log("paraaams",req.params)
-  Leave.find({user: req.params.userId})
-    .sort({ date: -1 })
-    // .then(leaves => res.json(leaves))
     .then(leaves => res.json(leaves))
     .catch(err => res.status(404).json({ noleavesfound: 'No leaves found' }));
 });
-
-
 
 // @route   GET api/leave/:id
 // @desc    Get leave by id

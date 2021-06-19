@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { registerUser } from '../../actions/authActions';
 import TextFieldGroup from '../common/TextFieldGroup';
 import SelectListGroup from '../common/SelectListGroup';
+import { Col, Row } from "react-bootstrap";
 
 
 class Register extends Component {
@@ -69,15 +70,20 @@ class Register extends Component {
 
 
     return (
-      <div className="register">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-8 m-auto">
-              <h1 className="display-4 text-center">Sign Up a Account</h1>
+       <div  className="form-wrapper">
+        <div className="container" class="w-75 p-3" style={{  margin:'auto'}}>
+          <div className="card bg-light mb-3 text-dark">
+            <div className="card-body">
+          
+            
+              <div className="display-4 text-center"><h2 class="text-left"><b><i>Sign Up a Account</i></b></h2><hr/></div>
               <p className="lead text-center">
                 Create user account
               </p>
+
               <form noValidate onSubmit={this.onSubmit}>
+              <Row>
+              <Col md="6">
                 <TextFieldGroup
                   placeholder="Name"
                   name="name"
@@ -85,17 +91,9 @@ class Register extends Component {
                   onChange={this.onChange}
                   error={errors.name}
                 />
-                <TextFieldGroup
-                  placeholder="Email"
-                  name="email"
-                  type="email"
-                  value={this.state.email}
-                  onChange={this.onChange}
-                  error={errors.email}
-                  info="This site uses Gravatar so if you want a profile image, use a Gravatar email"
-                />
-
-
+              </Col>
+              <Col md="6">
+               
                 <SelectListGroup
                   placeholder="Select User type"
                   name="userType"
@@ -105,8 +103,20 @@ class Register extends Component {
                   error={errors.userType}
                   info=""
                 />
+            </Col>
+            </Row>
+                 <TextFieldGroup
+                  placeholder="Email"
+                  name="email"
+                  type="email"
+                  value={this.state.email}
+                  onChange={this.onChange}
+                  error={errors.email}
+                  info="This site uses Gravatar so if you want a profile image, use a Gravatar email"
+                />
 
-
+            <Row>
+              <Col md="6">
                 <TextFieldGroup
                   placeholder="Password"
                   name="password"
@@ -115,6 +125,8 @@ class Register extends Component {
                   onChange={this.onChange}
                   error={errors.password}
                 />
+              </Col>
+              <Col md="6">
                 <TextFieldGroup
                   placeholder="Confirm Password"
                   name="password2"
@@ -123,12 +135,19 @@ class Register extends Component {
                   onChange={this.onChange}
                   error={errors.password2}
                 />
+              </Col>
+            </Row>
                 <input type="submit" className="btn btn-info btn-block mt-4" />
+                <br/>
+
+                <p className="forgot-password text-right"> Already registered <a href="/login">sign in?</a>
+                </p>
               </form>
+            </div>
             </div>
           </div>
         </div>
-      </div>
+      
     );
   }
 }

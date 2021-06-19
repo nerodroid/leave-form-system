@@ -3,7 +3,12 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { loginUser } from '../../actions/authActions';
 import TextFieldGroup from '../common/TextFieldGroup';
-import store from '../../store';
+import {  ButtonToolbar, Modal,FormControl,InputGroup } from 'react-bootstrap';
+import { BrowserRouter as Router, Switch,Redirect, Route, Link } from "react-router-dom";
+import { Icon, InlineIcon } from '@iconify/react';
+import emailIcon from '@iconify-icons/dashicons/email';
+import lockIcon from '@iconify-icons/fa-solid/lock';
+import Form from 'react-bootstrap/Form';
 
 class Login extends Component {
   constructor() {
@@ -26,16 +31,7 @@ class Login extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.auth.isAuthenticated) {
-      console.log("store.getState(2)",store.getState().auth.user)
-      
-      const userType = store.getState().auth.user.userType;
-      if(userType === 'academic' || userType === 'non-academic') {
-        this.props.history.push('/dashboard');
-      } else if(userType === 'dean'){
-        this.props.history.push('/dean-dashboard');
-      } else if(userType === 'a-r'){
-        this.props.history.push('/dean-dashboard');
-      }
+      this.props.history.push('/dashboard');
     }
 
     if (nextProps.errors) {
@@ -62,37 +58,67 @@ class Login extends Component {
     const { errors } = this.state;
 
     return (
-      <div className="login">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-8 m-auto">
-              <h1 className="display-4 text-center">Log In</h1>
-              <p className="lead text-center">
-                Sign in to Leave form System
-              </p>
-              <form onSubmit={this.onSubmit}>
-                <TextFieldGroup
-                  placeholder="Email Address"
-                  name="email"
-                  type="email"
-                  value={this.state.email}
-                  onChange={this.onChange}
-                  error={errors.email}
-                />
-
-                <TextFieldGroup
-                  placeholder="Password"
-                  name="password"
-                  type="password"
-                  value={this.state.password}
-                  onChange={this.onChange}
-                  error={errors.password}
-                />
-                <input type="submit" text="Login" className="btn btn-info btn-block mt-4" />
-              </form>
-            </div>
-          </div>
+      <div class="content">
+      <div  className="form-wrapper">
+      <div class="container" class="col-lg-5 col-md-6 col-sm-6" style={{margin:'auto' }} >
+      <div class="card bg-light text-dark">
+      <div class="card-body">
+      <Form onSubmit={this.onSubmit}  autocomplete="off">
+        <div class="text-center">
+          <span>Don't have an account?</span>
+             <Link to="/register"> Register. </Link>
+              <br/> 
         </div>
+         <br/>
+
+        <div class="text-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="5em" height="5em" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+          </svg>
+          <br/>
+          <h2 text-align="center"><b><i>Log in to your Account</i></b></h2>
+        </div>
+
+             <hr/><br/>
+            
+        <InputGroup className="mb-3">
+            <InputGroup.Prepend>
+              <InputGroup.Text id="basic-addon1"><Icon icon={emailIcon} /></InputGroup.Text>
+            </InputGroup.Prepend>
+                              
+            <FormControl type="email" name="email" id="email" className="form-control"  className="col-md-6" className="alert alert-dark"
+                 placeholder="Email Address"
+                 aria-label="Email Address"
+                 aria-describedby="basic-addon1"
+                 value={this.state.email}
+                 onChange={this.onChange}
+                 error={errors.email}
+            />
+        </InputGroup>
+
+        <InputGroup className="mb-3">
+          <InputGroup.Prepend>
+             <InputGroup.Text id="basic-addon1"><Icon icon={lockIcon} /></InputGroup.Text>
+          </InputGroup.Prepend>
+                    
+          <FormControl type="password" id="password" name="password"   className="form-control" className="col-md-6" className="alert alert-dark"
+              placeholder="Password"
+              aria-label="Password"
+              aria-describedby="basic-addon1"
+              value={this.state.password}
+              onChange={this.onChange}
+              error={errors.password}
+          />
+          </InputGroup>
+
+           <input type="submit" text="Login" className="btn btn-info btn-block mt-4" />
+        <br/>  <br/>
+      </Form>    
+      </div>
+      </div>
+      </div>
+      </div>
       </div>
     );
   }
