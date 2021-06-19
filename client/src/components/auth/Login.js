@@ -101,19 +101,7 @@ const Login = (props) => {
               onSubmit={onSubmit}
             >
 
-              {/* <TextField
-                variant="outlined"
-                margin="normal"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
-                autoFocus
-                size="small"
-                onChange={handleChange}
-              /> */}
+             
 
 <TextFieldGroup
                   placeholder="Email Address"
@@ -124,19 +112,7 @@ const Login = (props) => {
                   error={errors.email}
                 />
  
-              {/* <TextField
-                variant="outlined"
-                margin="normal"
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-                size="small"
-                onChange={handleChange}
-              /> */}
+              
 
 <TextFieldGroup
                   placeholder="Password"
