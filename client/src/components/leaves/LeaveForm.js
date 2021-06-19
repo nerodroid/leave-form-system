@@ -9,8 +9,7 @@ import { addPost } from '../../actions/postActions';
 import { addLeave } from '../../actions/leaveActions';
 
 import DatePicker from 'react-date-picker';
-
-
+import { Col, Row } from "react-bootstrap";
 class LeaveForm extends Component {
   constructor(props) {
     super(props);
@@ -192,11 +191,12 @@ class LeaveForm extends Component {
                 /> */}
 
                 
-              
+              <Row>
+              <Col md="3">
             
                  <div> <div className="form-text text-muted">Date to</div>
 
-                    <DatePicker className="form-text text-muted"
+                    <DatePicker 
                     
                     onChange={this.handleChange}
                     value={this.state.dateTo}
@@ -204,7 +204,8 @@ class LeaveForm extends Component {
                     />
 
                 </div>
-
+              </Col>
+              <Col md="3">
 
                 <div> <div className="form-text text-muted">Date from</div>
 
@@ -215,7 +216,8 @@ class LeaveForm extends Component {
                     />
 
                 </div>
-
+              </Col>
+              <Col md="3">
 
 
                 <div> <div className="form-text text-muted">Appointment Date</div>
@@ -226,8 +228,11 @@ class LeaveForm extends Component {
                     value={this.state.apointmentDate}
                     />
 
-                </div>                
+                </div> 
 
+                </Col>
+                </Row>                     
+                <br/>
                 {/* <InputGroup
                   placeholder="Date from"
                   name="dateFrom"
