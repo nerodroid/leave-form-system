@@ -5,6 +5,9 @@ import { connect } from 'react-redux';
 import { logoutUser } from '../../actions/authActions';
 import { clearCurrentProfile } from '../../actions/profileActions';
 import { Col, Image } from 'react-bootstrap';
+import { Avatar, IconButton } from '@material-ui/core';
+import logo from "../../img/UoJ_logo.png";
+import Typography from "@material-ui/core/Typography";
 
 class Navbar extends Component {
   onLogoutClick(e) {
@@ -78,12 +81,12 @@ class Navbar extends Component {
     return (
       <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
         <div className="container">
-        <Col xs={6} md={4}>
-      <Image src="../../img/UoJ_logo.png" roundedCircle />
-    </Col>
-          <Link className="navbar-brand" to="/">
+        <IconButton>
+            <Avatar alt="Remy Sharp" src={logo} />
+          </IconButton>
+          <Typography  variant="h6" noWrap>
             University Of Jaffna
-          </Link>
+          </Typography>
           <button
             className="navbar-toggler"
             type="button"
