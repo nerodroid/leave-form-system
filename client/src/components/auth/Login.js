@@ -66,7 +66,7 @@ const Login = (props) => {
 
   useEffect(() => {
     if (props.auth.isAuthenticated) {
-      props.history.push("/home");
+      props.history.push("/dashboard");
     }
   }, []);
 

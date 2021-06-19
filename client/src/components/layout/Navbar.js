@@ -79,7 +79,7 @@ class Navbar extends Component {
       <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
         <div className="container">
         <Col xs={6} md={4}>
-      <Image src="holder.js/171x180" roundedCircle />
+      <Image src="../../img/UoJ_logo.png" roundedCircle />
     </Col>
           <Link className="navbar-brand" to="/">
             University Of Jaffna
