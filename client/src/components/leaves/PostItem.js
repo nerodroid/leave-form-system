@@ -54,12 +54,13 @@ class PostItem extends Component {
           </div>
           <div className="col-md-10">
 
-          
+
+            <p className="lead">Applicant Name : {post.applicantName}</p>
+            <p className="lead">Applicant Type : {post.applicantUserType}</p>
             <p className="lead">Reason : {post.reason}</p>
             <p className="lead">Name of Actor : {post.nameOfActor}</p>
             <p className="lead">actor email : {post.actorEmail}</p>
-            <p className="lead">leave type : {post.leaveType}</p>
-            
+            <p className="lead">leave type : {post.leaveType}</p>            
             <p className="lead">Dean Approval : {post && post.isDeanApproved.toString()}</p>
             <p className="lead">HOD Approval : {post && post.isHODApproved.toString()}</p>
             <p className="lead">AR Approval : {post && post.isARApproved.toString()}</p>

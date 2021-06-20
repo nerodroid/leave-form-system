@@ -10,13 +10,17 @@ import { addLeave } from '../../actions/leaveActions';
 
 import DatePicker from 'react-date-picker';
 import { Col, Row } from "react-bootstrap";
+
+
+
 class LeaveForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
       
       errors: {},
-    
+      applicantName: '',
+      applicantUserType:'',
       reason: '',
       nameOfActor: '',
       actorEmail: '',
@@ -43,16 +47,33 @@ class LeaveForm extends Component {
   componentWillReceiveProps(newProps) {
     if (newProps.errors) {
       this.setState({ errors: newProps.errors });
+      //alert("Leave falied")
+    }
+    else{
+
+      console.log("Leave Added")
+      alert("Leave Added")
     }
   }
+  
+
+
+  
 
   onSubmit(e) {
       console.log("submit", this.state)
+
+
+      
     e.preventDefault();
     const { user } = this.props.auth;
+    console.log(user.name)
+     
+    //console.log(user.email)
 
     const newLeave = {
-      name: user.name,
+      applicantName: user.name,
+      applicantUserType: user.userType,
       leaveType: this.state.leaveType,
       dateTo: this.state.dateTo,
       dateFrom: this.state.dateFrom,
@@ -179,7 +200,7 @@ class LeaveForm extends Component {
                   value={this.state.leaveType}
                   onChange={this.onChange}
                   options={options}
-                  error={errors.status}
+                  error={errors.leaveType}
                   info=""
                 />
                 {/* <InputGroup
@@ -252,14 +273,14 @@ class LeaveForm extends Component {
                   name="reason"
                   value={this.state.reason}
                   onChange={this.onChange}
-                  error={errors.text}
+                  error={errors.reason}
                 />
                 <InputGroup
                   placeholder="Name of Actor"
                   name="nameOfActor"
                   value={this.state.nameOfActor}
                   onChange={this.onChange}
-                  error={errors.text}
+                  error={errors.nameOfActor}
                 />
                
                 <InputGroup
@@ -267,7 +288,7 @@ class LeaveForm extends Component {
                   name="actorEmail"
                   value={this.state.actorEmail}
                   onChange={this.onChange}
-                  error={errors.text}
+                  error={errors.actorEmail}
                 />
                 
                 {this.state.leaveType === 'vacation' && 
@@ -277,14 +298,14 @@ class LeaveForm extends Component {
                             name="location"
                             value={this.state.location}
                             onChange={this.onChange}
-                            error={errors.text}
+                            error={errors.location}
                         />
                         <InputGroup
                             placeholder="Duration"
                             name="duration"
                             value={this.state.duration}
                             onChange={this.onChange}
-                            error={errors.text}
+                            error={errors.duration}
                         />
                     </div>
                 }

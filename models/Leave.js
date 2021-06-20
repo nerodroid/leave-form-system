@@ -8,6 +8,13 @@ const LeaveSchema = new Schema({
         ref: 'users'
     },
 
+    applicantName: {
+        type:String,
+    },
+
+    applicantUserType: {
+        type:String,
+    },
     leaveType: {
         type:String,
     },
