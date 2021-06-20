@@ -16,7 +16,9 @@ const UserSchema = new Schema({
     required: true
   },
   userType: {
-    type: String
+    type: String,
+    required: true
+
   },
   date: {
     type: Date,

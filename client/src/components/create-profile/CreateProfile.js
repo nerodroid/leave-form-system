@@ -8,7 +8,7 @@ import InputGroup from '../common/InputGroup';
 import SelectListGroup from '../common/SelectListGroup';
 import { createProfile } from '../../actions/profileActions';
 import DatePicker from 'react-date-picker';
-
+import { Col, Row } from "react-bootstrap";
 
 
 class CreateProfile extends Component {
@@ -158,17 +158,18 @@ class CreateProfile extends Component {
     ];
 
     return (
-      <div className="create-profile">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-8 m-auto">
-              <h1 className="display-4 text-center">Complete Your Profile</h1>
+      <div className="container" class="w-75 p-3" style={{  margin:'auto'}}>
+        <div class="card bg-light text-dark">
+      <div class="card-body">
+      
+              <h2 className="text-left"><i>Complete Your Profile</i></h2><hr/>
               <p className="lead text-center">
                 Fill these fields 
               </p>
-              <small className="d-block pb-3">* = required fields</small>
+              <small className="d-block pb-3 text-danger">* = required fields</small>
               <form onSubmit={this.onSubmit}>
-
+              <Row>
+              <Col md="6">
                 <TextFieldGroup
                   placeholder="* firstName"
                   name="firstName"
@@ -177,7 +178,8 @@ class CreateProfile extends Component {
                   error={errors.firstName}
                   info="First Name"
                 />
-
+                </Col>
+                <Col md="6">
                 <TextFieldGroup
                   placeholder="* lastName"
                   name="lastName"
@@ -186,7 +188,11 @@ class CreateProfile extends Component {
                   error={errors.lastName}
                   info="Last Name"
                 />
+                </Col>
+                </Row>
 
+                <Row>
+                <Col md="6">
                 <TextFieldGroup
                   placeholder="* fullName"
                   name="fullName"
@@ -195,7 +201,8 @@ class CreateProfile extends Component {
                   error={errors.fullName}
                   info="Full Name"
                 />
-
+                </Col>
+                <Col md="6">
 
                  <TextFieldGroup
                   placeholder="* Employee ID"
@@ -205,6 +212,8 @@ class CreateProfile extends Component {
                   error={errors.empId}
                   info="empId"
                 />
+                </Col>
+                </Row>
 
                 {/* <TextFieldGroup
                   placeholder="* faculty"
@@ -214,7 +223,8 @@ class CreateProfile extends Component {
                   error={errors.faculty}
                   info="Choose your faculty"
                 /> */}
-
+                <Row>
+                <Col md="4">
                 <SelectListGroup
                   placeholder="Select Faculty"
                   name="faculty"
@@ -224,7 +234,8 @@ class CreateProfile extends Component {
                   error={errors.faculty}
                   info="Choose your faculty"
                 />
-
+                </Col>
+                <Col md="4">
 
                 
 
@@ -236,7 +247,8 @@ class CreateProfile extends Component {
                   error={errors.phoneNo}
                   info="Phone Number"
                 />
-
+          </Col>
+          
                 {/* <TextFieldGroup
                   placeholder="* gender"
                   name="gender"
@@ -245,7 +257,7 @@ class CreateProfile extends Component {
                   error={errors.gender}
                   info="gender"
                 /> */}
-
+        <Col md="4">
 
                 <SelectListGroup
                   placeholder="Select Gender"
@@ -256,7 +268,11 @@ class CreateProfile extends Component {
                   error={errors.gender}
                   info="Choose your Gender"
                 />
+          </Col>
+          </Row>
 
+          <Row>
+          <Col md="8">
                 <TextFieldGroup
                   placeholder="* address"
                   name="address"
@@ -265,7 +281,8 @@ class CreateProfile extends Component {
                   error={errors.address}
                   info="Address"
                 />
-
+              </Col>
+              </Row>
                 {/* <TextFieldGroup
                   placeholder="* dob"
                   name="dob"
@@ -274,7 +291,7 @@ class CreateProfile extends Component {
                   error={errors.dob}
                   info="Date of Birth"
                 /> */}
-
+           
                   <div> 
                      <div 
                         className="form-text text-muted">Date of Birth
@@ -283,7 +300,8 @@ class CreateProfile extends Component {
                         onChange={this.handleChange}
                         value={this.state.dob}  />
                   </div>
-    
+           
+
 
                 {/* <TextFieldGroup
                   placeholder="* Profile Handle"
@@ -367,15 +385,22 @@ class CreateProfile extends Component {
                   <span className="text-muted">Optional</span>
                 </div>
                 {socialInputs} */}
+
+                <Row>
+               <Col md="2"></Col>
+                <Col md="8">
                 <input
                   type="submit"
                   value="Submit"
                   className="btn btn-info btn-block mt-4"
                 />
+                </Col>
+                <Col md="2"></Col>
+                </Row>
               </form>
-            </div>
-          </div>
-        </div>
+          
+      </div>
+      </div>
       </div>
     );
   }

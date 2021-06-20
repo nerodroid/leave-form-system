@@ -8,6 +8,13 @@ const LeaveSchema = new Schema({
         ref: 'users'
     },
 
+    applicantName: {
+        type:String,
+    },
+
+    applicantUserType: {
+        type:String,
+    },
     leaveType: {
         type:String,
     },
@@ -33,15 +40,12 @@ const LeaveSchema = new Schema({
     },
     isHODApproved: {
         type: Boolean,
-        default:false
     },
     isDeanApproved: {
         type: Boolean,
-        default:false
     },
     isARApproved: {
         type: Boolean,
-        default:false
     },
     location: {
         type: String,
