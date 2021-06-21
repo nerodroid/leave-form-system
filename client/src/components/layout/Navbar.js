@@ -4,6 +4,9 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { logoutUser } from '../../actions/authActions';
 import { clearCurrentProfile } from '../../actions/profileActions';
+import { Avatar, IconButton } from '@material-ui/core';
+import logo from "../../img/UoJ_logo.png";
+import Typography from "@material-ui/core/Typography";
 
 class Navbar extends Component {
   onLogoutClick(e) {
@@ -86,9 +89,12 @@ class Navbar extends Component {
     return (
       <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
         <div className="container">
-          <Link className="navbar-brand" to="/">
-            Leave Form System
-          </Link>
+        <IconButton>
+            <Avatar alt="Remy Sharp" src={logo} />
+          </IconButton>
+          <Typography  variant="h6" noWrap>
+            University Of Jaffna
+          </Typography>
           <button
             className="navbar-toggler"
             type="button"
