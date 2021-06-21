@@ -5,6 +5,8 @@ import classnames from 'classnames';
 import { Link } from 'react-router-dom';
 import { deletePost, addLike, removeLike } from '../../actions/postActions';
 
+import { Col, Row } from "react-bootstrap";
+
 class PostItem extends Component {
   onDeleteClick(id) {
     this.props.deletePost(id);
@@ -45,16 +47,95 @@ class PostItem extends Component {
             <p className="text-center">{post.firstName}</p>
           </div>
           <div className="col-md-10">
-            <p className="lead">Reason : {post.reason}</p>
-            <p className="lead">Name of Actor : {post.nameOfActor}</p>
-            <p className="lead">actor email : {post.actorEmail}</p>
-            <p className="lead">leave type : {post.leaveType}</p>
-            <p className="lead">HOD Approval : {post.isHODApproved.toString()}</p>
-            <p className="lead">Dean Approval : {post.isDeanApproved.toString()}</p>
-            <p className="lead">AR Approval : {post.isARApproved.toString()}</p>
-            <p className="lead">Location to : {post.location}</p>
-            <p className="lead">Duration : {post.duration}</p>
-            <p className="lead">Institute : {post.institute}</p>
+            
+            <Row style={{"marginTop":"5px"}}>
+            <Col sm={4}>
+            <h6 className="lead">Reason :</h6>
+            </Col>
+            <Col sm={8} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px"}}>
+            <h6>{post.reason}</h6>
+            </Col>
+            </Row>
+
+            <Row style={{"marginTop":"5px"}}>
+            <Col sm={4}>
+            <h6 className="lead">Name of Actor :</h6>
+            </Col>
+            <Col sm={8} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px"}}>
+            <h6>{post.nameOfActor}</h6>
+            </Col>
+            </Row>
+            
+            <Row style={{"marginTop":"5px"}}>
+            <Col sm={4}>
+            <h6 className="lead">actor email : </h6>
+            </Col>
+            <Col sm={8} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px"}}>
+            <h6>{post.actorEmail}</h6>
+            </Col>
+            </Row>
+            
+            <Row style={{"marginTop":"5px"}}>
+            <Col sm={4}>
+            <h6 className="lead">leave type : </h6>
+            </Col>
+            <Col sm={8} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px"}}>
+            <h6>{post.leaveType}</h6>
+            </Col>
+            </Row>
+            
+            <Row style={{"marginTop":"5px"}}>
+            <Col sm={4}>
+            <h6 className="lead">HOD Approval : </h6>
+            </Col>
+            <Col sm={8} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px"}}>
+            <h6>{post.isHODApproved.toString()}</h6>
+            </Col>
+            </Row>
+        
+            <Row style={{"marginTop":"5px"}}>
+            <Col sm={4}>
+            <h6 className="lead">Dean Approval : </h6>
+            </Col>
+            <Col sm={8} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px"}}>
+            <h6>{post.isDeanApproved.toString()}</h6>
+            </Col>
+            </Row>
+            
+            <Row style={{"marginTop":"5px"}}>
+            <Col sm={4}>
+            <h6 className="lead">AR Approval : </h6>
+            </Col>
+            <Col sm={8} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px"}}>
+            <h6>{post.isARApproved.toString()}</h6>
+            </Col>
+            </Row>
+            
+            <Row style={{"marginTop":"5px"}}>
+            <Col sm={4}>
+            <h6 className="lead">Location to : </h6>
+            </Col>
+            <Col sm={8} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px"}}>
+            <h6>{post.location}</h6>
+            </Col>
+            </Row>
+            <Row style={{"marginTop":"5px"}}>
+            <Col sm={4}>
+            <h6 className="lead">Duration : </h6>
+            </Col>
+            <Col sm={8} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px"}}>
+            <h6>{post.duration}</h6>
+            </Col>
+            </Row>
+            
+            <Row style={{"marginTop":"5px"}}>
+            <Col sm={4}>
+            <h6 className="lead">Institute : </h6>
+            </Col>
+            <Col sm={8} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px"}}>
+            <h6>{post.institute}</h6>
+            </Col>
+            </Row>
             {showActions ? (
               <span>
                 <button
