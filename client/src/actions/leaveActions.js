@@ -12,16 +12,19 @@ import {
 } from './types';
 
 // Add Post
-export const addLeave = leaveData => dispatch => {
+export const addLeave = (leaveData, history) => dispatch => {
   dispatch(clearErrors());
-  console.log("leaveData",leaveData)
+  //console.log("leaveData",leaveData)
   axios
     .post('/api/leaves', leaveData)
+    
     .then(res =>
       dispatch({
         type: ADD_LEAVE,
         payload: res.data
       })
+
+      
     )
     .catch(err =>
       dispatch({

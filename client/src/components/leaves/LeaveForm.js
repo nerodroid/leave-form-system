@@ -37,23 +37,35 @@ class LeaveForm extends Component {
       apointmentDate: new Date(),
     };
 
-    
-
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
   componentWillReceiveProps(newProps) {
+
+    // if (!newProps.errors) {
+      
+    //   alert("Leave Success")
+    // } 
+    console.log(newProps.errors)
+
     if (newProps.errors) {
       this.setState({ errors: newProps.errors });
       //alert("Leave falied")
-    }
-    else{
 
-      console.log("Leave Added")
-      alert("Leave Added")
     }
+
+
+
+
+
+  
+
+
+    //this.state.push('/dashboard');
+  
+
   }
   
 
@@ -67,7 +79,7 @@ class LeaveForm extends Component {
       
     e.preventDefault();
     const { user } = this.props.auth;
-    console.log(user.name)
+    //console.log(user.name)
      
     //console.log(user.email)
 
@@ -90,7 +102,9 @@ class LeaveForm extends Component {
       
     };
 
-    this.props.addLeave(newLeave);
+    this.props.addLeave(newLeave)
+    
+    
 
     // const { user } = this.props.auth;
 

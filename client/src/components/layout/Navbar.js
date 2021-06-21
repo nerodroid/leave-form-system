@@ -15,6 +15,9 @@ class Navbar extends Component {
   render() {
     const { isAuthenticated, user } = this.props.auth;
 
+    const isAdmin = (user.userType === 'dean' || user.userType === 'hod' || user.userType === 'a-r' ) ?  true : false
+
+
     const authLinks = (
       <ul className="navbar-nav ml-auto">
         <li className="nav-item">
@@ -29,17 +32,23 @@ class Navbar extends Component {
           </Link>
         </li>
 
-
-        <li className="nav-item">
-          <Link className="nav-link" to="/leaves">
-            Request Leave
-          </Link>
-        </li>
+        {  (!isAdmin) ? <li className="nav-item"> <Link className="nav-link" to="/leaves">Request Leave </Link></li> : ""}
+         
+       
         <li className="nav-item">
           <Link className="nav-link" to="/dashboard">
             Dashboard
           </Link>
         </li>
+
+        <li className="nav-item">
+          <Link className="nav-link" to="/about">
+            About
+          </Link>
+        </li>
+
+
+
         <li className="nav-item">
           <a
             href=""
