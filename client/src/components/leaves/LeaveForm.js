@@ -9,6 +9,7 @@ import { addPost } from '../../actions/postActions';
 import { addLeave } from '../../actions/leaveActions';
 
 import DatePicker from 'react-date-picker';
+import { Col, Row } from "react-bootstrap";
 
 
 class LeaveForm extends Component {
@@ -173,8 +174,12 @@ class LeaveForm extends Component {
             <form onSubmit={this.onSubmit}>
               <div className="form-group">
 
-
-              <SelectListGroup
+              <Row style={{"height":"60px"}}> 
+                <Col>
+                  <h4>Select Leave Type</h4>
+                </Col>
+                <Col>
+                <SelectListGroup
                   placeholder="Select Leave type"
                   name="leaveType"
                   value={this.state.leaveType}
@@ -183,6 +188,9 @@ class LeaveForm extends Component {
                   error={errors.status}
                   info=""
                 />
+                </Col>
+              </Row>
+             
                 {/* <InputGroup
                   placeholder="Date to"
                   name="dateTo"
@@ -192,41 +200,67 @@ class LeaveForm extends Component {
                 /> */}
 
                 
-              
-            
-                 <div> <div className="form-text text-muted">Date to</div>
-
+                  <Row style={{"height":"60px"}}>
+                    <Col>
+                    <h4>
+                      Date From
+                    </h4>
+                    </Col>
+                    <Col>
                     <DatePicker className="form-text text-muted"
+
+onChange={this.handleChange}
+value={this.state.dateTo}
+
+/>
+
+                    </Col>
                     
-                    onChange={this.handleChange}
-                    value={this.state.dateTo}
+                  </Row>
+                    <Row style={{"height":"60px"}}>
+                      <Col>
+                        <h4>Date To</h4>
+                      </Col>
+                      <Col>
+
+<DatePicker
+
+onChange={this.handleChange}
+value={this.state.dateFrom}
+/>
+
+
+                    </Col>
+                    </Row>
+
+                    <Row style={{"height":"60px"}}>
+                      <Col>
+                      <h4>
+                        Appointment Date
+                      </h4>
+                      </Col>
+
+                      
+                    <Col>
+                  
+                  <DatePicker
+                  
+                  onChange={this.handleChange}
+                  value={this.state.apointmentDate}
+                  />
+                                      </Col>
+                    </Row>
                     
-                    />
 
-                </div>
+            
+                 
 
 
-                <div> <div className="form-text text-muted">Date from</div>
-
-                    <DatePicker
-                    
-                    onChange={this.handleChange}
-                    value={this.state.dateFrom}
-                    />
-
-                </div>
+               
 
 
 
-                <div> <div className="form-text text-muted">Appointment Date</div>
-
-                    <DatePicker
-                    
-                    onChange={this.handleChange}
-                    value={this.state.apointmentDate}
-                    />
-
-                </div>                
+                               
 
                 {/* <InputGroup
                   placeholder="Date from"
@@ -242,6 +276,28 @@ class LeaveForm extends Component {
                   onChange={this.onChange}
                   error={errors.text}
                 /> */}
+                 <Row style={{"height":"60px"}}> 
+                <Col>
+                  <h4>Select Leave Type</h4>
+                </Col>
+                <Col>
+                <SelectListGroup
+                  placeholder="Select Leave type"
+                  name="leaveType"
+                  value={this.state.leaveType}
+                  onChange={this.onChange}
+                  options={options}
+                  error={errors.status}
+                  info=""
+                />
+                </Col>
+              </Row>
+
+              <Row style={{"height":"60px"}}> 
+                <Col>
+                  <h4>Reason</h4>
+                </Col>
+                <Col>
                 <InputGroup
                   placeholder="Reason"
                   name="reason"
@@ -249,6 +305,14 @@ class LeaveForm extends Component {
                   onChange={this.onChange}
                   error={errors.text}
                 />
+                </Col>
+              </Row>
+                
+                 <Row style={{"height":"60px"}}> 
+                <Col>
+                  <h4>Name of the Actor</h4>
+                </Col>
+                <Col>
                 <InputGroup
                   placeholder="Name of Actor"
                   name="nameOfActor"
@@ -256,7 +320,15 @@ class LeaveForm extends Component {
                   onChange={this.onChange}
                   error={errors.text}
                 />
+                </Col>
+              </Row>
+                
                
+               <Row style={{"height":"60px"}}> 
+                <Col>
+                  <h4>Email of the Actor</h4>
+                </Col>
+                <Col>
                 <InputGroup
                   placeholder="Actor Email"
                   name="actorEmail"
@@ -264,40 +336,72 @@ class LeaveForm extends Component {
                   onChange={this.onChange}
                   error={errors.text}
                 />
+                </Col>
+              </Row>
+
+                
                 
                 {this.state.leaveType === 'vacation' && 
                     <div>
-                        <InputGroup
+                      <Row style={{"height":"60px"}}> 
+                <Col>
+                  <h4>Location</h4>
+                </Col>
+                <Col>
+                <InputGroup
                             placeholder="Location"
                             name="location"
                             value={this.state.location}
                             onChange={this.onChange}
                             error={errors.text}
                         />
-                        <InputGroup
+                </Col>
+              </Row>
+
+              <Row style={{"height":"60px"}}> 
+                <Col>
+                  <h4>Duration</h4>
+                </Col>
+                <Col>
+                <InputGroup
                             placeholder="Duration"
                             name="duration"
                             value={this.state.duration}
                             onChange={this.onChange}
                             error={errors.text}
                         />
+                </Col>
+              </Row>
+                        
+                        
                     </div>
                 }
                 {this.state.leaveType === 'study' && 
                     <div>
-                        <InputGroup
+                      <Row style={{"height":"60px"}}> 
+                <Col>
+                  <h4>Institute</h4>
+                </Col>
+                <Col>
+                <InputGroup
                             placeholder="Institute"
                             name="institute"
                             value={this.state.institute}
                             onChange={this.onChange}
                             error={errors.text}
                         />
+                </Col>
+              </Row>
+                        
                     </div>
                 }
               </div>
+              <Row style={{"float":"right", "paddingRight":"15px"}}>
               <button type="submit" className="btn btn-dark">
                 Submit
               </button>
+              </Row>
+              
             </form>
           </div>
         </div>
