@@ -1,12 +1,76 @@
 import React, { Component } from "react";
 import { Col, Row } from "react-bootstrap";
 import ReactToPrint from "react-to-print";
+import PropTypes from 'prop-types';
+import { useParams } from "react-router-dom";
+import { connect } from 'react-redux';
+
+
 
 class ComponentToPrint extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+      auth: '',
+      post:{},
+      errors: {}
+    };
+
+  
+  }
+  
+
+  componentDidMount() {
+    this.props.getLeave(this.props.match.params.id);
+  }
+
+
+
+  // componentDidMount() {
+
+  //   //const { user } = this.props.auth;
+  //   //console.log(user)
+  //   // if(user.userType === 'dean' || user.userType === 'a-r' || user.userType === 'hod'){
+  //   //   this.props.getAllLeaves(user.userType);
+  //   // }else {
+  //   //   this.props.getLeaves(user.id);
+  //   // }
+
+  //   const queryParams = new URLSearchParams(window.location.search);
+  //   const id = queryParams.get('id');
+
+  //   console.log(id)
+    
+  //      componentDidMount() {
+  //   this.props.getPost(this.props.match.params.id);
+  // }
+    
+  // }
+
+
+
+
   render() {
+
+
+    // const { id } = this.props.match.params;
+    
+
+    // console.log( id)
+
+
+    
+
+
+   
+
     return (
      
+
+      
         <div>
+          
         <Row style={{"marginTop":"5px"}}>
             <Col sm={4} style={{ "margin":"10px"}}>
             <h6 className="lead">Applicant Name:</h6>
@@ -121,13 +185,36 @@ class ComponentToPrint extends Component {
   }
 }
 
+// ComponentToPrint.propTypes = {
+//   loginUser: PropTypes.func.isRequired,
+//   auth: PropTypes.object.isRequired,
+//   errors: PropTypes.object.isRequired
+// };
+
+// const mapStateToProps = state => ({
+//   auth: state.auth,
+//   errors: state.errors,
+//   post: state.post
+// });
+
+
+
+
 export default class example extends Component {
   render() {
+
+    
     return (
+
+      
       <div>
         <ReactToPrint
           trigger={() => {
-            return <button style={{"backgroundColor": "#546e7a", "padding":"5px", "borderRadius":"3px","width":"100px",  "margin":"10px" }}>Print</button>;
+            return 
+            <button 
+              style={{"backgroundColor": "#546e7a", "padding":"5px", "borderRadius":"3px","width":"100px",  "margin":"10px" }}>
+              Print
+            </button>;
           }}
           content={() => this.componentRef}
           copyStyles

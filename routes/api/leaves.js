@@ -63,16 +63,16 @@ router.get('/getLeaves/:userId', (req, res) => {
     .catch(err => res.status(404).json({ noleavesfound: 'No leaves found' }));
 });
 
-
-
 // @route   GET api/leave/:id
 // @desc    Get leave by id
 // @access  Public
-router.get('/:id', (req, res) => {
+router.get('/getOne/:id', (req, res) => {
+  console.log("paraaams for Leave",req.params)
+  //60ce296074c2091244b58967
   Leave.findById(req.params.id)
-    .then(leave => res.json(leave))
+    .then(post => res.json(post))
     .catch(err =>
-      res.status(404).json({ nopostfound: 'No leave found with that ID' })
+      res.status(404).json({ noLeavefound: 'No leave found with that ID' })
     );
 });
 

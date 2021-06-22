@@ -2,20 +2,46 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
-import { Link } from 'react-router-dom';
-import { deletePost, addLike,onUnlikeClick, removeLike, approveLeave , disapproveLeave } from '../../actions/postActions';
+import { BrowserRouter as Router, Switch,Redirect, Route, Link ,withRouter } from "react-router-dom";
+import { deletePost, addLike, onUnlikeClick, removeLike, approveLeave , disapproveLeave , getLeave } from '../../actions/postActions';
 
 import { Col, Row } from "react-bootstrap";
 
 class PostItem extends Component {
+  constructor(props) {
+    super(props);
+
+
+
+    //console.log(this.props)
+}
+
   onDeleteClick(id) {
     this.props.deletePost(id);
   }
 
-
   onPrintCLick(id) {
     //this.props.deletePost(id);
-    window.location = "/create-pdf/id"
+    //const { auth} = this.props;
+    //this.props.getLeave(id);
+    
+    //const { history } = this.props;
+
+    //console.log("test Leave ID");
+
+    //  this.props.history.push( 
+    //    {pathname: "/create-pdf",  state: { leaveId:id}}
+    //  );
+    this.setState({ post: this.props.post });
+    console.log(this.props.post)
+
+    // const newTo = { 
+    //   pathname: "/create-pdf/:id", 
+    //   param1: "Par1" 
+    // };
+
+
+    window.location = "/leave/"+ id
   }
 
  
@@ -44,7 +70,7 @@ class PostItem extends Component {
   render() {
     const { post, auth, showActions } = this.props;
 
-    console.log("post", post)
+    //console.log("post", post)
 
     return (
       <div className="card card-body mb-3">
@@ -282,10 +308,12 @@ class PostItem extends Component {
                 ) : null}
 
 
-
+                
                 { post.isDeanApproved && post.isARApproved && post.isHODApproved  && post.user === auth.user.id  ? (
 
                   <button
+
+                  
                     onClick={this.onPrintCLick.bind(this, post._id)}
                     type="button"
                     style={{"backgroundColor": "#546e7a", "padding":"5px", "borderRadius":"3px","width":"100px", "float":"right", "margin":"10px" }}
@@ -319,8 +347,9 @@ PostItem.propTypes = {
 
 const mapStateToProps = state => ({
   auth: state.auth
+  
 });
 
-export default connect(mapStateToProps, { deletePost, addLike, removeLike, approveLeave,disapproveLeave })(
+export default connect(mapStateToProps, { deletePost, addLike, removeLike, approveLeave,disapproveLeave  , getLeave,})(
   PostItem
 );

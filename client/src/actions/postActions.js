@@ -130,6 +130,30 @@ export const disapproveLeave = (id, userType) => dispatch => {
     );
 };
 
+// Get Leave by Id
+export const getLeave = id => dispatch => {
+  axios
+    .get(`api/leave/${id}`)
+    .then(res =>
+      dispatch({
+        type: GET_POST,
+        payload: res.data
+      })
+    )
+    .catch(err =>
+      dispatch({
+        type: GET_POST,
+        payload: null
+      })
+    );
+};
+
+
+
+
+
+
+
 
 
 // export const disapproveLeave = id => dispatch => {
@@ -150,23 +174,23 @@ export const disapproveLeave = (id, userType) => dispatch => {
 // };
 
 // // Get Post
-// export const getPost = id => dispatch => {
-//   dispatch(setPostLoading());
-//   axios
-//     .get(`/api/posts/${id}`)
-//     .then(res =>
-//       dispatch({
-//         type: GET_POST,
-//         payload: res.data
-//       })
+//  export const getPost = id => dispatch => {
+//    dispatch(setPostLoading());
+//    axios
+//      .get(`/api/posts/${id}`)
+//      .then(res =>
+//        dispatch({
+//          type: GET_POST,
+//          payload: res.data
+//        })
 //     )
-//     .catch(err =>
-//       dispatch({
-//         type: GET_POST,
-//         payload: null
-//       })
-//     );
-// };
+//      .catch(err =>
+//        dispatch({
+//          type: GET_POST,
+//          payload: null
+//        })
+//      );
+//  };
 
 
 // Add Like
