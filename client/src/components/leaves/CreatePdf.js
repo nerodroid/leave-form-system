@@ -127,7 +127,7 @@ export default class example extends Component {
       <div>
         <ReactToPrint
           trigger={() => {
-            return <button>Print</button>;
+            return <button style={{"backgroundColor": "#546e7a", "padding":"5px", "borderRadius":"3px","width":"100px",  "margin":"10px" }}>Print</button>;
           }}
           content={() => this.componentRef}
           copyStyles
