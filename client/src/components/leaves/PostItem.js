@@ -230,6 +230,22 @@ class PostItem extends Component {
                         Approve AR
                     </button>
                   }
+
+
+
+                   {auth.user.userType === 'a-r' && 
+                    <button
+                      onClick={this.onClickDisapprove.bind(this, post._id)}
+                      type="button"
+                      className="btn btn-danger mr-1"> 
+                      <i className="fas fa-times" />
+                        Disapprove AR
+                    </button>
+                  }
+
+
+
+
                   {auth.user.userType === 'hod' && 
                     <button
                       onClick={this.onClickApprove.bind(this, post._id)}
@@ -239,6 +255,20 @@ class PostItem extends Component {
                         Approve HOD
                     </button>
                   }
+
+                  {auth.user.userType === 'hod' && 
+                    <button
+                      onClick={this.onClickDisapprove.bind(this, post._id)}
+                      type="button"
+                      className="btn btn-danger mr-1"> 
+                      <i className="fas fa-times" />
+                        Disapprove HOD
+                    </button>
+                  }
+
+
+
+
                 {post.user === auth.user.id ? (
 
                   <button
