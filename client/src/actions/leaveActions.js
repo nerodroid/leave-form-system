@@ -94,6 +94,24 @@ export const approveLeave = id => dispatch => {
     );
 };
 
+
+export const disapproveLeave = id => dispatch => {
+  axios
+    .put(`/api/posts/disapprove/${id}`)
+    .then(res =>
+      dispatch({
+        type: DELETE_POST,
+        payload: id
+      })
+    )
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
+};
+
 // Get Post
 export const getPost = id => dispatch => {
   dispatch(setPostLoading());

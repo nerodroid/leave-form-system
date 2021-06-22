@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
 import { Link } from 'react-router-dom';
-import { deletePost, addLike, removeLike, approveLeave } from '../../actions/postActions';
+import { deletePost, addLike,onUnlikeClick, removeLike, approveLeave , disapproveLeave } from '../../actions/postActions';
 
 import { Col, Row } from "react-bootstrap";
 
@@ -12,18 +12,23 @@ class PostItem extends Component {
     this.props.deletePost(id);
   }
 
-  onLikeClick(id) {
-    this.props.addLike(id);
+
+  onPrintCLick(id) {
+    //this.props.deletePost(id);
   }
 
-  onUnlikeClick(id) {
-    this.props.removeLike(id);
-  }
-
+ 
   onClickApprove = (id) => {
     const { auth} = this.props;
     console.log(id)
     this.props.approveLeave(id, auth.user.userType)
+  }
+
+
+  onClickDisapprove = (id) => {
+    const { auth} = this.props;
+    console.log(id)
+    this.props.disapproveLeave(id, auth.user.userType)
   }
 
   // findUserLike(likes) {
@@ -56,6 +61,27 @@ class PostItem extends Component {
           </div>
           <div className="col-md-10">
             
+
+            <Row style={{"marginTop":"5px"}}>
+            <Col sm={4}>
+            <h6 className="lead">Applicant Name:</h6>
+            </Col>
+            <Col sm={8} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px"}}>
+            <h6>{post.applicantName}</h6>
+            </Col>
+            </Row>
+
+            <Row style={{"marginTop":"5px"}}>
+            <Col sm={4}>
+            <h6 className="lead">Applicant Type :</h6>
+            </Col>
+            <Col sm={8} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px"}}>
+            <h6>{post.applicantUserType}</h6>
+            </Col>
+            </Row>
+
+
+
             <Row style={{"marginTop":"5px"}}>
             <Col sm={4}>
             <h6 className="lead">Reason :</h6>
@@ -147,7 +173,7 @@ class PostItem extends Component {
             {showActions ? (
               <span>
                 <button
-                  onClick={this.onLikeClick.bind(this, post._id)}
+                  //onClick={this.onLikeClick.bind(this, post._id)}
                   type="button"
                   className="btn btn-light mr-1"
                 >
@@ -177,7 +203,24 @@ class PostItem extends Component {
                       <i className="fas fa-times" />
                         Approve Dean
                     </button>
+                    
                   }
+
+
+                  
+                  {auth.user.userType === 'dean' && 
+                    <button
+                      onClick={this.onClickDisapprove.bind(this, post._id)}
+                      type="button"
+                      className="btn btn-danger mr-1"> 
+                      <i className="fas fa-times" />
+                        Disapprove Dean
+                    </button>
+                    
+                  }
+
+
+                  
                   {auth.user.userType === 'a-r' && 
                     <button
                       onClick={this.onClickApprove.bind(this, post._id)}
@@ -207,6 +250,23 @@ class PostItem extends Component {
                       delete Leave Aplication
                   </button>
                 ) : null}
+
+
+
+                { post.isDeanApproved && post.isARApproved && post.isHODApproved  && post.user === auth.user.id  ? (
+
+                  <button
+                    onClick={this.onPrintCLick.bind(this, post._id)}
+                    type="button"
+                    className="btn btn-success mr-1"
+                  > 
+                    <i className="fas fa-times" />
+                      Print PDF
+                  </button>
+                  ) : null
+                
+                }
+
               </span>
             ) : null}
           </div>
@@ -232,6 +292,6 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(mapStateToProps, { deletePost, addLike, removeLike, approveLeave })(
+export default connect(mapStateToProps, { deletePost, addLike, removeLike, approveLeave,disapproveLeave })(
   PostItem
 );

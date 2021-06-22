@@ -202,4 +202,60 @@ router.put('/approve/:id/:userType',passport.authenticate('jwt', { session: fals
 
 
 
+
+router.put('/disapprove/:id/:userType',passport.authenticate('jwt', { session: false }),(req, res) => {
+  // Profile.findOneAndUpdate({ isDeanApproved: true }).then(profile => {
+  //   Leave.findById(req.params.id)
+  //     .then(leave => {
+  //       // Check for post owner
+  //       if (leave.user.toString() !== req.user.id) {
+  //         return res
+  //           .status(401)
+  //           .json({ notauthorized: 'User not authorized' });
+  //       }
+
+  //       // Delete
+  //       leave.remove().then(() => res.json({ success: "Leave deleted" }));
+  //     })
+  //     .catch(err => res.status(404).json({ leavenotfound: 'No leave found' }));
+  // });
+
+  console.log(req.params.id)
+  Leave.findById(req.params.id).then(leave => {
+    if (leave) {
+      // Update
+      console.log(leave)
+      if(req.params.userType==='dean'){
+        Leave.findOneAndUpdate(
+          {_id : req.params.id},
+          { isDeanApproved: false }
+        )
+        .then(leave => res.json(leave))
+        .catch(err => res.status(404).json({ leavenotfound: 'No leave found' }));;
+      } else if(req.params.userType==='a-r') {
+        Leave.findOneAndUpdate(
+          {_id : req.params.id},
+          { isARApproved: false }
+        )
+        .then(leave => res.json(leave))
+        .catch(err => res.status(404).json({ leavenotfound: 'No leave found' }));;
+      } else if(req.params.userType==='hod') {
+        Leave.findOneAndUpdate(
+          {_id : req.params.id},
+          { isHODApproved: false }
+        )
+        .then(leave => res.json(leave))
+        .catch(err => res.status(404).json({ leavenotfound: 'No leave found' }));;
+      }
+    } 
+  });
+
+  
+}
+);
+
+
+
+
+
 module.exports = router;
