@@ -33,6 +33,7 @@ import Post from './components/post/Post';
 import About from './components/about/About';
 import NotFound from './components/not-found/NotFound';
 
+
 import './App.css';
 
 // Check for token
@@ -121,6 +122,7 @@ class App extends Component {
               <Switch>
                 <PrivateRoute exact path="/post/:id" component={Post} />
               </Switch>
+          
               <Route exact path="/not-found" component={NotFound} />
             </div>
             <Footer />
