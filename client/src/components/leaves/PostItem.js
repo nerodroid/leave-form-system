@@ -15,6 +15,7 @@ class PostItem extends Component {
 
   onPrintCLick(id) {
     //this.props.deletePost(id);
+    window.location = "/create-pdf/id"
   }
 
  

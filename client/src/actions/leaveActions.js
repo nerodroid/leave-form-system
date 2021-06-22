@@ -112,11 +112,10 @@ export const disapproveLeave = id => dispatch => {
     );
 };
 
-// Get Post
-export const getPost = id => dispatch => {
-  dispatch(setPostLoading());
+// Get Leave by Id
+export const getLeave = id => dispatch => {
   axios
-    .get(`/api/posts/${id}`)
+    .get(`api/leave/${id}`)
     .then(res =>
       dispatch({
         type: GET_POST,

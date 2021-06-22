@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-
-import ReactToPrint from "react-to-print";
 import { Col, Row } from "react-bootstrap";
+import ReactToPrint from "react-to-print";
 
 class ComponentToPrint extends Component {
   render() {
     return (
+     
         <div>
-          <Row style={{"marginTop":"5px"}}>
+        <Row style={{"marginTop":"5px"}}>
             <Col sm={4} style={{ "margin":"10px"}}>
             <h6 className="lead">Applicant Name:</h6>
             </Col>
@@ -63,7 +63,32 @@ class ComponentToPrint extends Component {
             </Col>
             </Row>
             
-           
+            <Row style={{"marginTop":"5px"}}>
+            <Col sm={4} style={{ "margin":"10px"}}>
+            <h6 className="lead">HOD Approval : </h6>
+            </Col>
+            <Col sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
+            {/* <h6>{post.isHODApproved.toString()}</h6> */}
+            </Col>
+            </Row>
+        
+            <Row style={{"marginTop":"5px"}}>
+            <Col sm={4} style={{ "margin":"10px"}}>
+            <h6 className="lead">Dean Approval : </h6>
+            </Col>
+            <Col sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
+            {/* <h6>{post.isDeanApproved.toString()}</h6> */}
+            </Col>
+            </Row>
+            
+            <Row style={{"marginTop":"5px"}}>
+            <Col sm={4} style={{ "margin":"10px"}}>
+            <h6 className="lead">AR Approval : </h6>
+            </Col>
+            <Col sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
+            {/* <h6>{post.isARApproved.toString()}</h6> */}
+            </Col>
+            </Row>
             
             <Row style={{"marginTop":"5px"}}>
             <Col sm={4} style={{ "margin":"10px"}}>
@@ -78,7 +103,7 @@ class ComponentToPrint extends Component {
             <h6 className="lead">Duration : </h6>
             </Col>
             <Col sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
-            <h6></h6>
+            {/* <h6>{post.duration}</h6> */}
             </Col>
             </Row>
             
@@ -87,10 +112,11 @@ class ComponentToPrint extends Component {
             <h6 className="lead">Institute : </h6>
             </Col>
             <Col sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
-            <h6></h6>
+            {/* <h6>{post.institute}</h6> */}
             </Col>
             </Row>
         </div>
+   
     );
   }
 }

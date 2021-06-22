@@ -72,7 +72,7 @@ class App extends Component {
               <Route exact path="/profiles" component={Profiles} />
               <Route exact path="/profile/:handle" component={Profile} />
               <Route exact path="/about" component={About} />
-              <Route exact path="/create-pdf" component={CreatePdf} />
+              <Route exact path="/create-pdf/:id" component={CreatePdf} />
               <Switch>
                 <PrivateRoute exact path="/dashboard" component={Dashboard} />
               </Switch>
