@@ -3,25 +3,32 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
 import { Link } from 'react-router-dom';
-import { deletePost, addLike, removeLike, approveLeave } from '../../actions/postActions';
+import { deletePost, addLike,onUnlikeClick, removeLike, approveLeave , disapproveLeave } from '../../actions/postActions';
+
+import { Col, Row } from "react-bootstrap";
 
 class PostItem extends Component {
   onDeleteClick(id) {
     this.props.deletePost(id);
   }
 
-  onLikeClick(id) {
-    this.props.addLike(id);
+
+  onPrintCLick(id) {
+    //this.props.deletePost(id);
   }
 
-  onUnlikeClick(id) {
-    this.props.removeLike(id);
-  }
-
+ 
   onClickApprove = (id) => {
     const { auth} = this.props;
     console.log(id)
     this.props.approveLeave(id, auth.user.userType)
+  }
+
+
+  onClickDisapprove = (id) => {
+    const { auth} = this.props;
+    console.log(id)
+    this.props.disapproveLeave(id, auth.user.userType)
   }
 
   // findUserLike(likes) {
@@ -53,24 +60,120 @@ class PostItem extends Component {
             
           </div>
           <div className="col-md-10">
+            
+
+            <Row style={{"marginTop":"5px"}}>
+            <Col sm={4} style={{ "margin":"10px"}}>
+            <h6 className="lead">Applicant Name:</h6>
+            </Col>
+            <Col sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
+            <h6>{post.applicantName}</h6>
+            </Col>
+            </Row>
+
+            <Row style={{"marginTop":"5px"}}>
+            <Col sm={4} style={{ "margin":"10px"}}>
+            <h6 className="lead">Applicant Type :</h6>
+            </Col>
+            <Col sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
+            <h6>{post.applicantUserType}</h6>
+            </Col>
+            </Row>
 
 
-            <p className="lead">Applicant Name : {post.applicantName}</p>
-            <p className="lead">Applicant Type : {post.applicantUserType}</p>
-            <p className="lead">Reason : {post.reason}</p>
-            <p className="lead">Name of Actor : {post.nameOfActor}</p>
-            <p className="lead">actor email : {post.actorEmail}</p>
-            <p className="lead">leave type : {post.leaveType}</p>            
-            <p className="lead">Dean Approval : {post && post.isDeanApproved.toString()}</p>
-            <p className="lead">HOD Approval : {post && post.isHODApproved.toString()}</p>
-            <p className="lead">AR Approval : {post && post.isARApproved.toString()}</p>
-            <p className="lead">Location to : {post.location}</p>
-            <p className="lead">Duration : {post.duration}</p>
-            <p className="lead">Institute : {post.institute}</p>
+
+            <Row style={{"marginTop":"5px"}}>
+            <Col sm={4} style={{ "margin":"10px"}}>
+            <h6 className="lead">Reason :</h6>
+            </Col>
+            <Col sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
+            <h6>{post.reason}</h6>
+            </Col>
+            </Row>
+
+            <Row style={{"marginTop":"5px"}}>
+            <Col sm={4} style={{ "margin":"10px"}}>
+            <h6 className="lead">Name of Actor :</h6>
+            </Col>
+            <Col sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
+            <h6>{post.nameOfActor}</h6>
+            </Col>
+            </Row>
+            
+            <Row style={{"marginTop":"5px"}}>
+            <Col sm={4} style={{ "margin":"10px"}}>
+            <h6 className="lead">actor email : </h6>
+            </Col>
+            <Col sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
+            <h6>{post.actorEmail}</h6>
+            </Col>
+            </Row>
+            
+            <Row style={{"marginTop":"5px"}}>
+            <Col sm={4} style={{ "margin":"10px"}}>
+            <h6 className="lead">leave type : </h6>
+            </Col>
+            <Col sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
+            <h6>{post.leaveType}</h6>
+            </Col>
+            </Row>
+            
+            <Row style={{"marginTop":"5px"}}>
+            <Col sm={4} style={{ "margin":"10px"}}>
+            <h6 className="lead">HOD Approval : </h6>
+            </Col>
+            <Col sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
+            <h6>{post.isHODApproved.toString()}</h6>
+            </Col>
+            </Row>
+        
+            <Row style={{"marginTop":"5px"}}>
+            <Col sm={4} style={{ "margin":"10px"}}>
+            <h6 className="lead">Dean Approval : </h6>
+            </Col>
+            <Col sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
+            <h6>{post.isDeanApproved.toString()}</h6>
+            </Col>
+            </Row>
+            
+            <Row style={{"marginTop":"5px"}}>
+            <Col sm={4} style={{ "margin":"10px"}}>
+            <h6 className="lead">AR Approval : </h6>
+            </Col>
+            <Col sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
+            <h6>{post.isARApproved.toString()}</h6>
+            </Col>
+            </Row>
+            
+            <Row style={{"marginTop":"5px"}}>
+            <Col sm={4} style={{ "margin":"10px"}}>
+            <h6 className="lead">Location to : </h6>
+            </Col>
+            <Col sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
+            <h6>{post.location}</h6>
+            </Col>
+            </Row>
+            <Row style={{"marginTop":"5px"}}>
+            <Col sm={4} style={{ "margin":"10px"}}>
+            <h6 className="lead">Duration : </h6>
+            </Col>
+            <Col sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
+            <h6>{post.duration}</h6>
+            </Col>
+            </Row>
+            
+            <Row style={{"marginTop":"5px"}}>
+            <Col sm={4} style={{ "margin":"10px"}}>
+            <h6 className="lead">Institute : </h6>
+            </Col>
+            <Col sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
+            <h6>{post.institute}</h6>
+            </Col>
+            </Row>
             {showActions ? (
               <span>
                 <button
-                  onClick={this.onLikeClick.bind(this, post._id)}
+                  //onClick={this.onLikeClick.bind(this, post._id)}
                   type="button"
                   className="btn btn-light mr-1"
                 >
@@ -91,32 +194,49 @@ class PostItem extends Component {
                 {/* <Link to={`/post/${post._id}`} className="btn btn-info mr-1">
                   Comments
                 </Link> */}
+                
 
                   {auth.user.userType === 'dean' && 
                     <button
                       onClick={this.onClickApprove.bind(this, post._id)}
                       type="button"
-                      className="btn btn-danger mr-1"> 
-                      <i className="fas fa-times" />
-                        Approve Dean
+                      style={{"backgroundColor": "#546e7a", "padding":"5px", "borderRadius":"3px","width":"100px", "float":"right", "margin":"10px" }}> 
+                        Approve
                     </button>
+                    
                   }
+
+
+                  
+                  {auth.user.userType === 'dean' && 
+                    <button
+                      onClick={this.onClickDisapprove.bind(this, post._id)}
+                      type="button"
+                      style={{"backgroundColor": "#bf360c", "padding":"5px", "borderRadius":"3px","width":"100px", "float":"right", "margin":"10px" }}> 
+                    
+                        Decline
+                    </button>
+                    
+                  }
+
+
+                  
                   {auth.user.userType === 'a-r' && 
                     <button
                       onClick={this.onClickApprove.bind(this, post._id)}
                       type="button"
-                      className="btn btn-danger mr-1"> 
-                      <i className="fas fa-times" />
-                        Approve AR
+                      style={{"backgroundColor": "#546e7a", "padding":"5px", "borderRadius":"3px","width":"100px", "float":"right", "margin":"10px"}}> 
+                      
+                        Approve
                     </button>
                   }
                   {auth.user.userType === 'hod' && 
                     <button
                       onClick={this.onClickApprove.bind(this, post._id)}
                       type="button"
-                      className="btn btn-danger mr-1"> 
-                      <i className="fas fa-times" />
-                        Approve HOD
+                      style={{"backgroundColor": "#546e7a", "padding":"5px", "borderRadius":"3px","width":"100px", "float":"right", "margin":"10px" }}> 
+                     
+                        Approve
                     </button>
                   }
                 {post.user === auth.user.id ? (
@@ -124,12 +244,27 @@ class PostItem extends Component {
                   <button
                     onClick={this.onDeleteClick.bind(this, post._id)}
                     type="button"
-                    className="btn btn-danger mr-1"
+                    style={{"backgroundColor": "#bf360c", "padding":"5px", "borderRadius":"3px","width":"250px", "float":"right", "margin":"10px" }}
                   > 
-                    <i className="fas fa-times" />
-                      delete Leave Aplication
+                      Delete Leave Aplication
                   </button>
                 ) : null}
+
+
+
+                { post.isDeanApproved && post.isARApproved && post.isHODApproved  && post.user === auth.user.id  ? (
+
+                  <button
+                    onClick={this.onPrintCLick.bind(this, post._id)}
+                    type="button"
+                    style={{"backgroundColor": "#546e7a", "padding":"5px", "borderRadius":"3px","width":"100px", "float":"right", "margin":"10px" }}
+                  > 
+                      Print PDF
+                  </button>
+                  ) : null
+                
+                }
+
               </span>
             ) : null}
           </div>
@@ -155,6 +290,6 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(mapStateToProps, { deletePost, addLike, removeLike, approveLeave })(
+export default connect(mapStateToProps, { deletePost, addLike, removeLike, approveLeave,disapproveLeave })(
   PostItem
 );

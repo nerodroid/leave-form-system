@@ -32,6 +32,8 @@ import LeaveFeed from './components/leaves/LeaveFeed';
 import Post from './components/post/Post';
 import About from './components/about/About';
 import NotFound from './components/not-found/NotFound';
+import CreatePdf from './components/leaves/CreatePdf'
+
 
 import './App.css';
 
@@ -70,6 +72,7 @@ class App extends Component {
               <Route exact path="/profiles" component={Profiles} />
               <Route exact path="/profile/:handle" component={Profile} />
               <Route exact path="/about" component={About} />
+              <Route exact path="/create-pdf" component={CreatePdf} />
               <Switch>
                 <PrivateRoute exact path="/dashboard" component={Dashboard} />
               </Switch>
@@ -121,6 +124,7 @@ class App extends Component {
               <Switch>
                 <PrivateRoute exact path="/post/:id" component={Post} />
               </Switch>
+          
               <Route exact path="/not-found" component={NotFound} />
             </div>
             <Footer />

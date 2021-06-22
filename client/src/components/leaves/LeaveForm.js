@@ -228,10 +228,22 @@ class LeaveForm extends Component {
                 
               <Row>
               <Col md="3">
+
+<div> <div className="form-text text-muted">Date from</div>
+
+    <DatePicker
+    
+    onChange={this.handleChange}
+    value={this.state.dateFrom}
+    />
+
+</div>
+</Col>
+              <Col md="3">
             
                  <div> <div className="form-text text-muted">Date to</div>
 
-                    <DatePicker 
+                    <DatePicker className="form-text text-muted"
                     
                     onChange={this.handleChange}
                     value={this.state.dateTo}
@@ -240,18 +252,7 @@ class LeaveForm extends Component {
 
                 </div>
               </Col>
-              <Col md="3">
-
-                <div> <div className="form-text text-muted">Date from</div>
-
-                    <DatePicker
-                    
-                    onChange={this.handleChange}
-                    value={this.state.dateFrom}
-                    />
-
-                </div>
-              </Col>
+              
               <Col md="3">
 
 

@@ -9,6 +9,8 @@ import { Icon, InlineIcon } from '@iconify/react';
 import emailIcon from '@iconify-icons/dashicons/email';
 import lockIcon from '@iconify-icons/fa-solid/lock';
 import Form from 'react-bootstrap/Form';
+import { Col, Row } from "react-bootstrap";
+import logo from "../../img/unilogo.png";
 
 class Login extends Component {
   constructor() {
@@ -60,16 +62,28 @@ class Login extends Component {
     return (
       <div class="content">
       <div  className="form-wrapper">
-      <div class="container" class="col-lg-5 col-md-6 col-sm-6" style={{margin:'auto' }} >
-      <div class="card bg-light text-dark">
+       <div class="card bg-light text-dark col-lg-10" style={{margin:'auto'}}>
       <div class="card-body">
-      <Form onSubmit={this.onSubmit}  autocomplete="off">
-        <div class="text-center">
-          <span>Don't have an account?</span>
-             <Link to="/register"> Register. </Link>
-              <br/> 
-        </div>
-         <br/>
+      <Row className="justify-content-md-center">
+         <Col md="4">
+          <div class="container h-100">
+            <div class="row h-100 justify-content-center align-items-center">
+              <img src={logo} style={{width:"150px", height:"150px"}}/>
+            </div>
+          </div>
+          </Col>
+   
+        <Col md="8">
+        <div class="container" class="col-lg-10 col-md-10 col-sm-10">
+        <div class="card  text-dark">
+        <div class="card-body">
+        <Form onSubmit={this.onSubmit}  autocomplete="off">
+          <div class="text-center">
+            <span>Don't have an account?</span>
+               <Link to="/register"> Register. </Link>
+                <br/> 
+          </div>
+           <br/>
 
         <div class="text-center">
           <svg xmlns="http://www.w3.org/2000/svg" width="5em" height="5em" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
@@ -116,6 +130,10 @@ class Login extends Component {
         <br/>  <br/>
       </Form>    
       </div>
+      </div>
+      </div>
+      </Col>
+      </Row>
       </div>
       </div>
       </div>

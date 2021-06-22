@@ -30,6 +30,9 @@ module.exports = function validatePostInput(data) {
   if (Validator.isEmpty(data.actorEmail)) {
     errors.actorEmail = 'Actor email is required';
   }
+  if (!Validator.isEmail(data.actorEmail)) {
+    errors.actorEmail = 'Email is invalid';
+  }
 
   // if (Validator.isEmpty(data.location)) {
   //   errors.location = 'location is required';

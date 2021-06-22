@@ -15,7 +15,7 @@ export const registerUser = (userData, history) => dispatch => {
         payload: err.response.data
       })
     );
-};
+}; 
 
 // Login - Get User Token
 export const loginUser = userData => dispatch => {

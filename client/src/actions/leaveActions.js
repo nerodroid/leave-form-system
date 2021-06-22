@@ -22,8 +22,8 @@ export const addLeave = (leaveData, history) => dispatch => {
       dispatch({
         type: ADD_LEAVE,
         payload: res.data
-      })
-
+      },window.location = "/dashboard")
+      
       
     )
     .catch(err =>
@@ -80,6 +80,24 @@ export const getAllLeaves = (userType) => dispatch => {
 export const approveLeave = id => dispatch => {
   axios
     .put(`/api/posts/approve/${id}`)
+    .then(res =>
+      dispatch({
+        type: DELETE_POST,
+        payload: id
+      })
+    )
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
+};
+
+
+export const disapproveLeave = id => dispatch => {
+  axios
+    .put(`/api/posts/disapprove/${id}`)
     .then(res =>
       dispatch({
         type: DELETE_POST,

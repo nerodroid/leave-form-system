@@ -251,7 +251,7 @@ class CreateProfile extends Component {
       <Link to="/dashboard" className="btn btn-light">
           Go Back
       </Link>
-      <br/>   <br/>
+      <br/>  <br/>
       <div className="card bg-light mb-3 text-dark">
       <div className="card-body">
               <h2 className="text-center"><i>Edit Profile</i></h2><hr/>
@@ -311,8 +311,8 @@ class CreateProfile extends Component {
                   error={errors.faculty}
                   info="Choose your faculty"
                 /> */}
-      <Row>
-      <Col md="4">
+          <Row>
+          <Col md="4">
 
                 <SelectListGroup
                   placeholder="Select Faculty"
@@ -323,8 +323,8 @@ class CreateProfile extends Component {
                   error={errors.faculty}
                   info="Choose your faculty"
                 />
-      </Col>
-      <Col md="4">
+          </Col>
+          <Col md="4">
                 <TextFieldGroup
                   placeholder="* phoneNo"
                   name="phoneNo"
@@ -343,8 +343,8 @@ class CreateProfile extends Component {
                   info="gender"
                 /> */}
 
-        </Col>
-        <Col md="4">
+          </Col>
+          <Col md="4">
                 <SelectListGroup
                   placeholder="Select Gender"
                   name="gender"
@@ -355,11 +355,11 @@ class CreateProfile extends Component {
                   info="Choose your Gender"
                 />
                 
-        </Col>
-        </Row>
+          </Col>
+          </Row>
 
-        <Row>
-        <Col md="8">
+          <Row>
+          <Col md="8">
                 <TextFieldGroup
                   placeholder="* address"
                   name="address"
@@ -380,9 +380,8 @@ class CreateProfile extends Component {
                 /> */}
 
 
-                 {/* <div> 
-                     <div 
-                        className="form-text text-muted">Date of Birth
+                  <div> 
+                     <div className="form-text text-muted">Date of Birth
                      </div>
                       <DatePicker className="form-text text-muted"
                         onChange={this.handleChange}
@@ -477,7 +476,7 @@ class CreateProfile extends Component {
                 {socialInputs} */}
 
                 <Row>
-               <Col md="2"></Col>
+              <Col md="2"></Col>
                 <Col md="8">
               
                   <input
