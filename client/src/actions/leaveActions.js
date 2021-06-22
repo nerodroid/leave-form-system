@@ -22,8 +22,8 @@ export const addLeave = (leaveData, history) => dispatch => {
       dispatch({
         type: ADD_LEAVE,
         payload: res.data
-      })
-
+      },window.location = "/dashboard")
+      
       
     )
     .catch(err =>
