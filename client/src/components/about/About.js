@@ -30,23 +30,23 @@ class Post extends Component {
     }
 
     return (
-      <div className="post">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-12">
-              <Row >
+      <div >
+        <div >
+          <div >
+            <div >
+              <Row style={{"textAlign":"center"}}>
               <h3>Document Management System</h3>
               </Row>
-              
+            
               <Row>
                 <p>This system is for managing Leave forms in digital format for University of Jaffna Staff. </p>
               </Row>
 
-              
+              </div> 
 
 
 
-            </div>
+            
           </div>
         </div>
       </div>

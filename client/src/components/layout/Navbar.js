@@ -24,25 +24,22 @@ class Navbar extends Component {
     const authLinks = (
       <ul className="navbar-nav ml-auto">
         <li className="nav-item">
+          <Link className="nav-link" to="/dashboard">
+            Home
+          </Link>
+        </li>
+        <li className="nav-item">
           <Link className="nav-link" to="/feed">
             {(user.userType === 'dean' || user.userType === 'hod' || user.userType === 'a-r' ) ? 'Leaves' : 'My Leaves'}
           </Link>
         </li>
 
-        <li className="nav-item">
-          <Link className="nav-link" to="/#">
-            Notifications
-          </Link>
-        </li>
+        
 
         {  (!isAdmin) ? <li className="nav-item"> <Link className="nav-link" to="/leaves">Request Leave </Link></li> : ""}
          
        
-        <li className="nav-item">
-          <Link className="nav-link" to="/dashboard">
-            Dashboard
-          </Link>
-        </li>
+        
 
         <li className="nav-item">
           <Link className="nav-link" to="/about">
@@ -92,7 +89,7 @@ class Navbar extends Component {
         <IconButton>
             <Avatar alt="Remy Sharp" src={logo} />
           </IconButton>
-          <Typography  variant="h6" noWrap>
+          <Typography  variant="h6" noWrap style={{"color":"white"}}>
             University Of Jaffna
           </Typography>
           <button
