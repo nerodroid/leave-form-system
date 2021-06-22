@@ -63,19 +63,19 @@ class PostItem extends Component {
             
 
             <Row style={{"marginTop":"5px"}}>
-            <Col sm={4}>
+            <Col sm={4} style={{ "margin":"10px"}}>
             <h6 className="lead">Applicant Name:</h6>
             </Col>
-            <Col sm={8} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px"}}>
+            <Col sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
             <h6>{post.applicantName}</h6>
             </Col>
             </Row>
 
             <Row style={{"marginTop":"5px"}}>
-            <Col sm={4}>
+            <Col sm={4} style={{ "margin":"10px"}}>
             <h6 className="lead">Applicant Type :</h6>
             </Col>
-            <Col sm={8} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px"}}>
+            <Col sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
             <h6>{post.applicantUserType}</h6>
             </Col>
             </Row>
@@ -83,90 +83,90 @@ class PostItem extends Component {
 
 
             <Row style={{"marginTop":"5px"}}>
-            <Col sm={4}>
+            <Col sm={4} style={{ "margin":"10px"}}>
             <h6 className="lead">Reason :</h6>
             </Col>
-            <Col sm={8} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px"}}>
+            <Col sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
             <h6>{post.reason}</h6>
             </Col>
             </Row>
 
             <Row style={{"marginTop":"5px"}}>
-            <Col sm={4}>
+            <Col sm={4} style={{ "margin":"10px"}}>
             <h6 className="lead">Name of Actor :</h6>
             </Col>
-            <Col sm={8} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px"}}>
+            <Col sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
             <h6>{post.nameOfActor}</h6>
             </Col>
             </Row>
             
             <Row style={{"marginTop":"5px"}}>
-            <Col sm={4}>
+            <Col sm={4} style={{ "margin":"10px"}}>
             <h6 className="lead">actor email : </h6>
             </Col>
-            <Col sm={8} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px"}}>
+            <Col sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
             <h6>{post.actorEmail}</h6>
             </Col>
             </Row>
             
             <Row style={{"marginTop":"5px"}}>
-            <Col sm={4}>
+            <Col sm={4} style={{ "margin":"10px"}}>
             <h6 className="lead">leave type : </h6>
             </Col>
-            <Col sm={8} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px"}}>
+            <Col sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
             <h6>{post.leaveType}</h6>
             </Col>
             </Row>
             
             <Row style={{"marginTop":"5px"}}>
-            <Col sm={4}>
+            <Col sm={4} style={{ "margin":"10px"}}>
             <h6 className="lead">HOD Approval : </h6>
             </Col>
-            <Col sm={8} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px"}}>
+            <Col sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
             <h6>{post.isHODApproved.toString()}</h6>
             </Col>
             </Row>
         
             <Row style={{"marginTop":"5px"}}>
-            <Col sm={4}>
+            <Col sm={4} style={{ "margin":"10px"}}>
             <h6 className="lead">Dean Approval : </h6>
             </Col>
-            <Col sm={8} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px"}}>
+            <Col sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
             <h6>{post.isDeanApproved.toString()}</h6>
             </Col>
             </Row>
             
             <Row style={{"marginTop":"5px"}}>
-            <Col sm={4}>
+            <Col sm={4} style={{ "margin":"10px"}}>
             <h6 className="lead">AR Approval : </h6>
             </Col>
-            <Col sm={8} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px"}}>
+            <Col sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
             <h6>{post.isARApproved.toString()}</h6>
             </Col>
             </Row>
             
             <Row style={{"marginTop":"5px"}}>
-            <Col sm={4}>
+            <Col sm={4} style={{ "margin":"10px"}}>
             <h6 className="lead">Location to : </h6>
             </Col>
-            <Col sm={8} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px"}}>
+            <Col sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
             <h6>{post.location}</h6>
             </Col>
             </Row>
             <Row style={{"marginTop":"5px"}}>
-            <Col sm={4}>
+            <Col sm={4} style={{ "margin":"10px"}}>
             <h6 className="lead">Duration : </h6>
             </Col>
-            <Col sm={8} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px"}}>
+            <Col sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
             <h6>{post.duration}</h6>
             </Col>
             </Row>
             
             <Row style={{"marginTop":"5px"}}>
-            <Col sm={4}>
+            <Col sm={4} style={{ "margin":"10px"}}>
             <h6 className="lead">Institute : </h6>
             </Col>
-            <Col sm={8} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px"}}>
+            <Col sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
             <h6>{post.institute}</h6>
             </Col>
             </Row>
@@ -194,14 +194,14 @@ class PostItem extends Component {
                 {/* <Link to={`/post/${post._id}`} className="btn btn-info mr-1">
                   Comments
                 </Link> */}
+                
 
                   {auth.user.userType === 'dean' && 
                     <button
                       onClick={this.onClickApprove.bind(this, post._id)}
                       type="button"
-                      className="btn btn-danger mr-1"> 
-                      <i className="fas fa-times" />
-                        Approve Dean
+                      style={{"backgroundColor": "#546e7a", "padding":"5px", "borderRadius":"3px","width":"100px", "float":"right", "margin":"10px" }}> 
+                        Approve
                     </button>
                     
                   }
@@ -212,9 +212,9 @@ class PostItem extends Component {
                     <button
                       onClick={this.onClickDisapprove.bind(this, post._id)}
                       type="button"
-                      className="btn btn-danger mr-1"> 
-                      <i className="fas fa-times" />
-                        Disapprove Dean
+                      style={{"backgroundColor": "#bf360c", "padding":"5px", "borderRadius":"3px","width":"100px", "float":"right", "margin":"10px" }}> 
+                    
+                        Decline
                     </button>
                     
                   }
@@ -225,9 +225,9 @@ class PostItem extends Component {
                     <button
                       onClick={this.onClickApprove.bind(this, post._id)}
                       type="button"
-                      className="btn btn-danger mr-1"> 
-                      <i className="fas fa-times" />
-                        Approve AR
+                      style={{"backgroundColor": "#546e7a", "padding":"5px", "borderRadius":"3px","width":"100px", "float":"right", "margin":"10px"}}> 
+                      
+                        Approve
                     </button>
                   }
 
@@ -250,9 +250,9 @@ class PostItem extends Component {
                     <button
                       onClick={this.onClickApprove.bind(this, post._id)}
                       type="button"
-                      className="btn btn-danger mr-1"> 
-                      <i className="fas fa-times" />
-                        Approve HOD
+                      style={{"backgroundColor": "#546e7a", "padding":"5px", "borderRadius":"3px","width":"100px", "float":"right", "margin":"10px" }}> 
+                     
+                        Approve
                     </button>
                   }
 
@@ -274,10 +274,9 @@ class PostItem extends Component {
                   <button
                     onClick={this.onDeleteClick.bind(this, post._id)}
                     type="button"
-                    className="btn btn-danger mr-1"
+                    style={{"backgroundColor": "#bf360c", "padding":"5px", "borderRadius":"3px","width":"250px", "float":"right", "margin":"10px" }}
                   > 
-                    <i className="fas fa-times" />
-                      delete Leave Aplication
+                      Delete Leave Aplication
                   </button>
                 ) : null}
 
@@ -288,9 +287,8 @@ class PostItem extends Component {
                   <button
                     onClick={this.onPrintCLick.bind(this, post._id)}
                     type="button"
-                    className="btn btn-success mr-1"
+                    style={{"backgroundColor": "#546e7a", "padding":"5px", "borderRadius":"3px","width":"100px", "float":"right", "margin":"10px" }}
                   > 
-                    <i className="fas fa-times" />
                       Print PDF
                   </button>
                   ) : null
