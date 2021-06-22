@@ -7,6 +7,7 @@ import PostItem from '../posts/PostItem';
 //import CommentFeed from './CommentFeed';
 import Spinner from '../common/Spinner';
 import { getPost } from '../../actions/postActions';
+import Row from 'react-bootstrap/Row';
 
 class Post extends Component {
   componentDidMount() {
@@ -33,11 +34,15 @@ class Post extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-12">
+              <Row >
+              <h3>Document Management System</h3>
+              </Row>
               
-              Leave Form System
-              <div></div>
+              <Row>
+                <p>This system is for managing Leave forms in digital format for University of Jaffna Staff. </p>
+              </Row>
 
-              This system is for managing Leave forms in digital format for University of Jaffna Staff.
+              
 
 
 
