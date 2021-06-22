@@ -91,6 +91,7 @@ router.post(
     if (!isValid) {
       // If any errors, send 400 with errors object
       return res.status(400).json(errors);
+      
     }
 
     const newLeave = new Leave({
@@ -114,6 +115,7 @@ router.post(
     });
 
     newLeave.save().then(leave => res.json(leave));
+    console.log("success");
   }
 );
 
