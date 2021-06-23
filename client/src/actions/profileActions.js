@@ -58,6 +58,7 @@ export const createProfile = (profileData, history) => dispatch => {
         payload: err.response.data
       })
     );
+    console.log(profileData);
 };
 
 // Add experience

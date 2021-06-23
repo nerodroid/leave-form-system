@@ -7,6 +7,7 @@ import { Col, Row } from "react-bootstrap";
 class ProfileAbout extends Component {
   render() {
     const { profile } = this.props;
+    console.log(profile);
 
    
     return (
@@ -74,7 +75,7 @@ class ProfileAbout extends Component {
             <h6 className="lead">Employee Id  : </h6>
             </Col>
             <Col sm={6} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
-            <h6>{profile.empID}</h6>
+            <h6>{profile.empId}</h6>
             </Col>
             </Row>
 
