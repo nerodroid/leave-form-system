@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const passport = require('passport');
-
+const { sendMail } = require('../../services/mail.js');
 // Post model
 const Leave = require('../../models/Leave');
 // Profile model
@@ -10,7 +10,7 @@ const Profile = require('../../models/Profile');
 // User model
 const User = require('../../models/User');
 
- //Validation
+ //Validation../../client/src/services/mail
 const validateLeaveInput = require('../../validation/leave');
 
 // @route   GET api/leave/test
@@ -113,8 +113,21 @@ router.post(
       institute: req.body.institute,
            
     });
-
+    sendMail({
+      to: req.body.actorEmail,
+      subject: "You have been selected as the Substitute worker",
+      text: "bar",
+      html: `<p>Dear ${req.body.nameOfActor} ,<br/><br/>
+      <pre>This email is to inform that you have been selected as the Substitute worker by ${req.body.applicantName}
+      
+      
+      If you need to make any  changes or any inquiries , Contact HOD , Dean or Ar
+      
+      Thanks
+      University of Jaffna.</pre>`,
+    });
     newLeave.save().then(leave => res.json(leave));
+   
     console.log("success");
   }
 );

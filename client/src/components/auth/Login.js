@@ -65,7 +65,7 @@ class Login extends Component {
        <div class="card bg-light text-dark col-lg-10" style={{margin:'auto'}}>
       <div class="card-body">
       <Row className="justify-content-md-center">
-         <Col md="6">
+         <Col md={6} xs={4}>
           <div class="container h-100">
             <div class="row h-100 justify-content-center align-items-center">
               <img src={logo} style={{width:"60%", height:"auto"}}/>
@@ -73,7 +73,7 @@ class Login extends Component {
           </div>
           </Col>
    
-        <Col md="6">
+        <Col md={6} xs={8}>
         <div class="container" class="col-lg-10 col-md-10 col-sm-10">
         <div class="card  text-dark">
         <div class="card-body">

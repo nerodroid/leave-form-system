@@ -41,7 +41,7 @@ router.post('/register', (req, res) => {
         userType: req.body.userType,
         password: req.body.password
       });
-
+//Blowfish symmetric block cipher cryptographic algorithm
       bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(newUser.password, salt, (err, hash) => {
           if (err) throw err;

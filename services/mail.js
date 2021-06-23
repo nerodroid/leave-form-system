@@ -1,5 +1,5 @@
-// import nodemailer from 'nodemailer';
-// import dotenv from 'dotenv';
+// const nodemailer = require('nodemailer');
+// const dotenv = require('dotenv');
 // dotenv.config();
 
 // const NODE_ENV = process.env.NODE_ENV;
@@ -9,14 +9,14 @@
 // const SMTP_PASSWORD = process.env.SMTP_PASSWORD || "asdf1234@";
 // const SMTP_PORT = process.env.SMTP_PORT || 587;
 
-// export const sendMail = ({ to, from, subject, text, html }) => {
+// module.exports.sendMail = ({ to, from, subject, text, html }) => {
 //   let transporterOptions = {
 //     service: "gmail",
 //     auth: {
 //       user: SMTP_EMAIL,
 //       pass: SMTP_PASSWORD,
 //     },
-//   };
+//   };    
 
 //   if (NODE_ENV === "production") {
 //     transporterOptions = {

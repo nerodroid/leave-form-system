@@ -1,6 +1,4 @@
 import axios from 'axios';
-import { sendMail } from '../services/mail';
-
 import {
   ADD_POST,
   GET_ERRORS,
@@ -24,20 +22,7 @@ export const addLeave = (leaveData, history) => dispatch => {
       dispatch({
         type: ADD_LEAVE,
         payload: res.data
-      },window.location = "/dashboard",
-      sendMail({
-        to: res.data.actorEmail,
-        subject: "You have been selected as the Substitute worker",
-        text: "bar",
-        html: `<p>Dear ${res.data.ActorName} ,<br/><br/>
-        <pre>This email is to inform that you have been selected as the Substitute worker by ${res.data.ActorName}
-        
-        
-        If you need to make any  changes or any inquiries , Contact HOD , Dean or Ar
-        
-        Thanks
-        University of Jaffna.</pre>`,
-      }))
+      },window.location = "/dashboard")
       
       
     )
