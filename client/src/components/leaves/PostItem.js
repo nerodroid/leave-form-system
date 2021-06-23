@@ -264,9 +264,9 @@ class PostItem extends Component {
                     <button
                       onClick={this.onClickDisapprove.bind(this, post._id)}
                       type="button"
-                      className="btn btn-danger mr-1"> 
+                      style={{"backgroundColor": "#546e7a", "padding":"5px", "borderRadius":"3px","width":"100px", "float":"right", "margin":"10px" }}> 
                       <i className="fas fa-times" />
-                        Disapprove AR
+                        Decline
                     </button>
                   }
 
@@ -287,9 +287,9 @@ class PostItem extends Component {
                     <button
                       onClick={this.onClickDisapprove.bind(this, post._id)}
                       type="button"
-                      className="btn btn-danger mr-1"> 
+                      style={{"backgroundColor": "#546e7a", "padding":"5px", "borderRadius":"3px","width":"100px", "float":"right", "margin":"10px" }}> 
                       <i className="fas fa-times" />
-                        Disapprove HOD
+                        Decline
                     </button>
                   }
 
