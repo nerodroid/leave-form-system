@@ -31,6 +31,7 @@ class LeaveForm extends Component {
       location:'',
       duration:'',
       institute: '',
+      placeToVisit:'',
 
       dateTo: new Date(),
       dateFrom: new Date(),
@@ -99,6 +100,7 @@ class LeaveForm extends Component {
       location:this.state.location,
       duration:this.state.duration,
       institute: this.state.institute,
+      placeToVisit: this.state.placeToVisit,
       
     };
 
@@ -196,6 +198,7 @@ class LeaveForm extends Component {
         { label: '* Select a Leave type', value: 0 },
         { label: 'Vacation', value: 'vacation' },
         { label: 'Study', value: 'study' },
+        { label: 'Duty', value: 'duty' },
       ];
 
 
@@ -335,6 +338,24 @@ class LeaveForm extends Component {
                         />
                     </div>
                 }
+
+
+
+                 {this.state.leaveType === 'duty' && 
+                    <div>
+                        <InputGroup
+                            placeholder="placeToVisit"
+                            name="placeToVisit"
+                            value={this.state.placeToVisit}
+                            onChange={this.onChange}
+                            error={errors.placeToVisit}
+                        />
+                    </div>
+                }
+
+
+
+
               </div>
               <button type="submit" className="btn btn-dark">
                 Submit

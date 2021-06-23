@@ -39,12 +39,26 @@ class Post extends Component {
               </Row>
             
               <Row>
-                <p>This system is for managing Leave forms in digital format for University of Jaffna Staff. </p>
+                <p>
+Leave Management System is a platform to manage and send the 
+leaves of staff members in Unversity of Jaffna.
+ this system allows users to apply for leaves and check thier 
+ status of approval of Dean , Hod and Ar.
+  and also this system equip faciities for Authoratitive 
+  members to review the leaves apppliied by staff
+   and give their approval or disapproval. 
+   And users can print out a the approved physical leave form from this application </p>
+              </Row>
+
+
+              <Row>
+                <p>
+
+                  https://github.com/nerodroid/leave-form-system/tree/master
+                 </p>
               </Row>
 
               </div> 
-
-
 
             
           </div>
