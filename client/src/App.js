@@ -33,7 +33,6 @@ import Post from './components/post/Post';
 import Leave from './components/leave/Leave';
 import About from './components/about/About';
 import NotFound from './components/not-found/NotFound';
-import CreatePdf from './components/leaves/CreatePdf'
 
 
 import './App.css';
@@ -76,9 +75,7 @@ class App extends Component {
               <Switch>
                 <PrivateRoute exact path="/dashboard" component={Dashboard} />
               </Switch>
-              <Switch>
-                <PrivateRoute exact path="/create-pdf/:leaveId" component={CreatePdf} />
-              </Switch>
+     
               <Switch>
                 <PrivateRoute exact path="/about" component={About} />
               </Switch>

@@ -19,48 +19,10 @@ class Leave extends Component {
     this.props.getLeave(this.props.match.params.id)
   }
 
-//   render() {
-//     const { post, loading } = this.props.post;
-//     let postContent;
-
-//     if (post === null || loading || Object.keys(post).length === 0) {
-//       postContent = <Spinner />;
-//     } else {
-//       postContent = (
-//         <div>
-//           <PostItem post={post} showActions={false} />
-//           {/* <CommentForm postId={post._id} />
-//           <CommentFeed postId={post._id} comments={post.comments} /> */}
-//         </div>
-//       );
-//     }
-
-//     return (
-//       <div className="post">
-//         <div className="container">
-//           <div className="row">
-//             <div className="col-md-12">
-//               <Link to="/feed" className="btn btn-light mb-3">
-//                 Back To Feed
-//               </Link>
-//               {postContent}
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     );
-//   }
-// }
 
 
 
 render() {
-
-
-  // const { id } = this.props.match.params;
-  
-
-  // console.log( id)
   const { post, loading } = this.props.post;
     let postContent;
 
@@ -77,31 +39,26 @@ render() {
       );
     }
 
-  
-
-
- 
 
   return (
    
-
-    
       <div>
+        <div ref={(e1) => (this.componentRef = e1)}>
         
-      <Row style={{"marginTop":"5px"}}>
-          <Col sm={4} style={{ "margin":"10px"}}>
+        <Row style={{"marginTop":"5px"}}>
+          <Col xs={4} sm={4} style={{ "margin":"10px"}}>
           <h6 className="lead">Applicant Name:</h6>
           </Col>
-          <Col sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
+          <Col xs={4} sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
           { <h6>{post.applicantName}</h6> }
           </Col>
           </Row>
 
           <Row style={{"marginTop":"5px"}}>
-          <Col sm={4} style={{ "margin":"10px"}}>
+          <Col xs={4} sm={4} style={{ "margin":"10px"}}>
           <h6 className="lead">Applicant Type :</h6>
           </Col>
-          <Col sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
+          <Col xs={4} sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
           { <h6>{post.applicantUserType}</h6> }
           </Col>
           </Row>
@@ -109,46 +66,46 @@ render() {
 
 
           <Row style={{"marginTop":"5px"}}>
-          <Col sm={4} style={{ "margin":"10px"}}>
+          <Col xs={4} sm={4} style={{ "margin":"10px"}}>
           <h6 className="lead">Reason :</h6>
           </Col>
-          <Col sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
+          <Col xs={4} sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
           { <h6>{post.reason}</h6> }
           </Col>
           </Row>
 
           <Row style={{"marginTop":"5px"}}>
-          <Col sm={4} style={{ "margin":"10px"}}>
+          <Col xs={4} sm={4} style={{ "margin":"10px"}}>
           <h6 className="lead">Name of Actor :</h6>
           </Col>
-          <Col sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
+          <Col xs={4} sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
           { <h6>{post.nameOfActor}</h6> }
           </Col>
           </Row>
           
           <Row style={{"marginTop":"5px"}}>
-          <Col sm={4} style={{ "margin":"10px"}}>
+          <Col xs={4} sm={4} style={{ "margin":"10px"}}>
           <h6 className="lead">actor email : </h6>
           </Col>
-          <Col sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
+          <Col xs={4} sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
           { <h6>{post.actorEmail}</h6> }
           </Col>
           </Row>
           
           <Row style={{"marginTop":"5px"}}>
-          <Col sm={4} style={{ "margin":"10px"}}>
+          <Col xs={4} sm={4} style={{ "margin":"10px"}}>
           <h6 className="lead">leave type : </h6>
           </Col>
-          <Col sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
+          <Col xs={4} sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
           { <h6>{post.leaveType}</h6> }
           </Col>
           </Row>
           
           <Row style={{"marginTop":"5px"}}>
-          <Col sm={4} style={{ "margin":"10px"}}>
+          <Col xs={4} sm={4} style={{ "margin":"10px"}}>
           <h6 className="lead">HOD Approval : </h6>
           </Col>
-          <Col sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
+          <Col xs={4} sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
           {/* { <h6>{post.isHODApproved.toString()}</h6> } */
               <h6>True</h6>
         
@@ -157,20 +114,20 @@ render() {
           </Row>
       
           <Row style={{"marginTop":"5px"}}>
-          <Col sm={4} style={{ "margin":"10px"}}>
+          <Col xs={4} sm={4} style={{ "margin":"10px"}}>
           <h6 className="lead">Dean Approval : </h6>
           </Col>
-          <Col sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
+          <Col xs={4} sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
           {/* <h6>{post.isDeanApproved.toString()}</h6> */
          <h6>True</h6>}
           </Col>
           </Row>
           
           <Row style={{"marginTop":"5px"}}>
-          <Col sm={4} style={{ "margin":"10px"}}>
+          <Col xs={4} sm={4} style={{ "margin":"10px"}}>
           <h6 className="lead">AR Approval : </h6>
           </Col>
-          <Col sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
+          <Col xs={4} sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
           {/* { <h6>{post.isARApproved.toString()}</h6> } */
         
         <h6>True</h6>}
@@ -178,47 +135,51 @@ render() {
           </Row>
           
           <Row style={{"marginTop":"5px"}}>
-          <Col sm={4} style={{ "margin":"10px"}}>
+          <Col xs={4} sm={4} style={{ "margin":"10px"}}>
           <h6 className="lead">Location to : </h6>
           </Col>
-          <Col sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
+          <Col xs={4} sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
           { <h6>{post.location}</h6> }
           </Col>
           </Row>
           <Row style={{"marginTop":"5px"}}>
-          <Col sm={4} style={{ "margin":"10px"}}>
+          <Col xs={4} sm={4} style={{ "margin":"10px"}}>
           <h6 className="lead">Duration : </h6>
           </Col>
-          <Col sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
+          <Col xs={4} sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
           { <h6>{post.duration}</h6> }
           </Col>
           </Row>
           
           <Row style={{"marginTop":"5px"}}>
-          <Col sm={4} style={{ "margin":"10px"}}>
+          <Col xs={4} sm={4} style={{ "margin":"10px"}}>
           <h6 className="lead">Institute : </h6>
           </Col>
-          <Col sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
+          <Col xs={4} sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
           {<h6>{post.institute}</h6> }
           </Col>
           </Row>
+          </div>
+          <div>
+            <Row>
+            <ReactToPrint
+          trigger={() => {
+            return <button>Print</button>;
+          }}
+          content={() => this.componentRef}
+          copyStyles
+          pageStyle={false}
+        />
+            </Row>
+          </div>
+
+         
       </div>
  
   );
 }
 }
 
-// ComponentToPrint.propTypes = {
-//   loginUser: PropTypes.func.isRequired,
-//   auth: PropTypes.object.isRequired,
-//   errors: PropTypes.object.isRequired
-// };
-
-// const mapStateToProps = state => ({
-//   auth: state.auth,
-//   errors: state.errors,
-//   post: state.post
-// });
 
 Leave.propTypes = {
   getLeave: PropTypes.func.isRequired,
@@ -233,9 +194,6 @@ const mapStateToProps = state => ({
   errors: state.errors
 });
 
-export default connect(mapStateToProps, { getLeave })(Leave);
-
-
-
+ export default connect(mapStateToProps, { getLeave })(Leave);
 
 
