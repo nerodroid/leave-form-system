@@ -9,7 +9,8 @@ import {
   GET_POST,
   POST_LOADING,
   DELETE_POST,
-  ADD_LEAVE
+  ADD_LEAVE,
+  GET_LEAVE
 } from './types';
 
 // Add Post
@@ -126,15 +127,21 @@ export const disapproveLeave = id => dispatch => {
     );
 };
 
-// Get Leave by Id
+// Get Post
 export const getLeave = id => dispatch => {
+  dispatch(setPostLoading());
   axios
-    .get(`api/leave/${id}`)
+    .get(`/api/leaves/getOne/${id}`)
     .then(res =>
-      dispatch({
-        type: GET_POST,
-        payload: res.data
-      })
+      {
+        console.log( "get Leave method" ,res.data)
+        dispatch({
+          type: GET_POST,
+          payload: res.data,
+        })
+
+      }      
+      
     )
     .catch(err =>
       dispatch({
@@ -142,6 +149,8 @@ export const getLeave = id => dispatch => {
         payload: null
       })
     );
+
+    
 };
 
 // Delete Post
