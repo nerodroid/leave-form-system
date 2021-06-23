@@ -42,7 +42,7 @@ class Dashboard extends Component {
           <div>
             <p >Welcome {user.name}</p>
             <p>Please complete your Profile details</p>
-            <Link to="/create-profile" className="btn btn-lg btn-info" style={{"width":"100px"}}>
+            <Link to="/create-profile" className="btn btn-lg btn-info" >
               Create Profile
             </Link>
           </div>
