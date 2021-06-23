@@ -60,11 +60,12 @@ class Register extends Component {
 
     const options = [
      
-      { label: 'Dean', value: 'dean' },
-      { label: 'A R', value: 'a-r' },
+     // { label: 'Dean', value: 'dean' },
+     // { label: 'A R', value: 'a-r' },
       { label: 'Academic', value: 'academic' },
       { label: 'Non-Academic', value: 'non-academic' },
-      { label: 'HOD', value: 'hod' },
+     
+      //{ label: 'HOD', value: 'hod' },
       
     ];
 

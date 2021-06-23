@@ -386,7 +386,7 @@ class CreateProfile extends Component {
                       <DatePicker className="form-text text-muted"
                         onChange={this.handleChange}
                         value={this.state.dob}  />
-                  </div> */}
+                  </div> 
 
 
 
