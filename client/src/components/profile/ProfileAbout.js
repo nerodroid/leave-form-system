@@ -43,23 +43,9 @@ class ProfileAbout extends Component {
             </Col>
             </Row>
 
-            <Row style={{"marginTop":"5px"}}>
-            <Col sm={4} style={{ "margin":"10px"}}>
-            <h6 className="lead">Email  : </h6>
-            </Col>
-            <Col sm={6} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
-            <h6>{profile.email}</h6>
-            </Col>
-            </Row>
+            
 
-            <Row style={{"marginTop":"5px"}}>
-            <Col sm={4} style={{ "margin":"10px"}}>
-            <h6 className="lead">Employee Type  : </h6>
-            </Col>
-            <Col sm={6} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
-            <h6>{profile.userType}</h6>
-            </Col>
-            </Row>
+            
 
             <Row style={{"marginTop":"5px"}}>
             <Col sm={4} style={{ "margin":"10px"}}>
@@ -90,14 +76,7 @@ class ProfileAbout extends Component {
             </Col>
             </Row>
             
-            <Row style={{"marginTop":"5px"}}>
-            <Col sm={4} style={{ "margin":"10px"}}>
-            <h6 className="lead">Gender   : </h6>
-            </Col>
-            <Col sm={6} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
-            <h6>{profile.gender}</h6>
-            </Col>
-            </Row>
+            
             
             <Row style={{"marginTop":"5px"}}>
             <Col sm={4} style={{ "margin":"10px"}}>
