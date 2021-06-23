@@ -2,42 +2,115 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import isEmpty from '../../validation/is-empty';
 
+import { Col, Row } from "react-bootstrap";
+
 class ProfileAbout extends Component {
   render() {
     const { profile } = this.props;
 
-    // Get first name
-    const firstName = profile.user.name.trim().split(' ')[0];
-
-    // Skill List
-    const skills = profile.skills.map((skill, index) => (
-      <div key={index} className="p-3">
-        <i className="fa fa-check" /> {skill}
-      </div>
-    ));
-
+   
     return (
-      <div className="row">
-        <div className="col-md-12">
-          <div className="card card-body bg-light mb-3">
-            <h3 className="text-center text-info">{firstName}'s Bio</h3>
-            <p className="lead">
-              {isEmpty(profile.bio) ? (
-                <span>{firstName} does not have a bio</span>
-              ) : (
-                <span>{profile.bio}</span>
-              )}
-            </p>
-            <hr />
-            <h3 className="text-center text-info">Skill Set</h3>
-            <div className="row">
-              <div className="d-flex flex-wrap justify-content-center align-items-center">
-                {skills}
-              </div>
-            </div>
+      <div >
+            
+
+            <Row style={{"marginTop":"5px"}}>
+            <Col sm={4} style={{ "margin":"10px"}}>
+            <h6 className="lead">First Name  :</h6>
+            </Col>
+            <Col sm={6} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
+            <h6>{profile.firstName}</h6>
+            </Col>
+            </Row>
+
+            <Row style={{"marginTop":"5px"}}>
+            <Col sm={4} style={{ "margin":"10px"}}>
+            <h6 className="lead">Last Name  :</h6>
+            </Col>
+            <Col sm={6} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
+            <h6>{profile.lastName}</h6>
+            </Col>
+            </Row>
+
+
+
+            <Row style={{"marginTop":"5px"}}>
+            <Col sm={4} style={{ "margin":"10px"}}>
+            <h6 className="lead">Full Name  :</h6>
+            </Col>
+            <Col sm={6} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
+            <h6>{profile.fullName}</h6>
+            </Col>
+            </Row>
+
+            <Row style={{"marginTop":"5px"}}>
+            <Col sm={4} style={{ "margin":"10px"}}>
+            <h6 className="lead">Email  : </h6>
+            </Col>
+            <Col sm={6} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
+            <h6>{profile.email}</h6>
+            </Col>
+            </Row>
+
+            <Row style={{"marginTop":"5px"}}>
+            <Col sm={4} style={{ "margin":"10px"}}>
+            <h6 className="lead">Employee Type  : </h6>
+            </Col>
+            <Col sm={6} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
+            <h6>{profile.userType}</h6>
+            </Col>
+            </Row>
+
+            <Row style={{"marginTop":"5px"}}>
+            <Col sm={4} style={{ "margin":"10px"}}>
+            <h6 className="lead">Faculty  :</h6>
+            </Col>
+            <Col sm={6} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
+            <h6>{profile.faculty}</h6>
+            </Col>
+            </Row>
+
+            <Row style={{"marginTop":"5px"}}>
+            <Col sm={4} style={{ "margin":"10px"}}>
+            <h6 className="lead">Employee Id  : </h6>
+            </Col>
+            <Col sm={6} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
+            <h6>{profile.empID}</h6>
+            </Col>
+            </Row>
+
+            
+            
+            <Row style={{"marginTop":"5px"}}>
+            <Col sm={4} style={{ "margin":"10px"}}>
+            <h6 className="lead">Phone Number   : </h6>
+            </Col>
+            <Col sm={6} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
+            <h6>{profile.phoneNo}</h6>
+            </Col>
+            </Row>
+            
+            <Row style={{"marginTop":"5px"}}>
+            <Col sm={4} style={{ "margin":"10px"}}>
+            <h6 className="lead">Gender   : </h6>
+            </Col>
+            <Col sm={6} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
+            <h6>{profile.gender}</h6>
+            </Col>
+            </Row>
+            
+            <Row style={{"marginTop":"5px"}}>
+            <Col sm={4} style={{ "margin":"10px"}}>
+            <h6 className="lead">Address  : </h6>
+            </Col>
+            <Col sm={6} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
+            <h6>{profile.address}</h6>
+            </Col>
+            </Row>
+        
+            
+            
+           
           </div>
-        </div>
-      </div>
     );
   }
 }

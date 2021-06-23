@@ -1,99 +1,92 @@
-import React, { Component } from 'react';
-import isEmpty from '../../validation/is-empty';
+// import React, { Component } from 'react';
+// import isEmpty from '../../validation/is-empty';
+// import { Col, Row } from "react-bootstrap";
 
-class ProfileHeader extends Component {
-  render() {
-    const { profile } = this.props;
+// class ProfileHeader extends Component {
+//   render() {
+//     const { profile } = this.props;
 
-    return (
-      <div className="row">
-        <div className="col-md-12">
-          <div className="card card-body bg-info text-white mb-3">
-            <div className="row">
-              <div className="col-4 col-md-3 m-auto">
-                <img
-                  className="rounded-circle"
-                  src={profile.user.avatar}
-                  alt=""
-                />
-              </div>
-            </div>
-            <div className="text-center">
-              <h1 className="display-4 text-center">{profile.user.name}</h1>
-              <p className="lead text-center">
-                {profile.status}{' '}
-                {isEmpty(profile.company) ? null : (
-                  <span>at {profile.company}</span>
-                )}
-              </p>
-              {isEmpty(profile.location) ? null : <p>{profile.location}</p>}
-              <p>
-                {isEmpty(profile.website) ? null : (
-                  <a
-                    className="text-white p-2"
-                    href={profile.website}
-                    target="_blank"
-                  >
-                    <i className="fas fa-globe fa-2x" />
-                  </a>
-                )}
+//     return (
+//       <div className="col-md-10">
+            
 
-                {isEmpty(profile.social && profile.social.twitter) ? null : (
-                  <a
-                    className="text-white p-2"
-                    href={profile.social.twitter}
-                    target="_blank"
-                  >
-                    <i className="fab fa-twitter fa-2x" />
-                  </a>
-                )}
+//             <Row style={{"marginTop":"5px", "width":"100%"}}>
+//             <Col sm={4} style={{ "margin":"10px"}}>
+//             <h6 className="lead">First Name:</h6>
+//             </Col>
+//             <Col sm={6} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
+//             <h6>{profile.firstName}</h6>
+//             </Col>
+//             </Row>
 
-                {isEmpty(profile.social && profile.social.facebook) ? null : (
-                  <a
-                    className="text-white p-2"
-                    href={profile.social.facebook}
-                    target="_blank"
-                  >
-                    <i className="fab fa-facebook fa-2x" />
-                  </a>
-                )}
+//             {/* <Row style={{"marginTop":"5px"}}>
+//             <Col sm={4} style={{ "margin":"10px"}}>
+//             <h6 className="lead">Applicant Type :</h6>
+//             </Col>
+//             <Col sm={6} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
+//             <h6>{post.applicantUserType}</h6>
+//             </Col>
+//             </Row>
 
-                {isEmpty(profile.social && profile.social.linkedin) ? null : (
-                  <a
-                    className="text-white p-2"
-                    href={profile.social.linkedin}
-                    target="_blank"
-                  >
-                    <i className="fab fa-linkedin fa-2x" />
-                  </a>
-                )}
 
-                {isEmpty(profile.social && profile.social.youtube) ? null : (
-                  <a
-                    className="text-white p-2"
-                    href={profile.social.youtube}
-                    target="_blank"
-                  >
-                    <i className="fab fa-youtube fa-2x" />
-                  </a>
-                )}
 
-                {isEmpty(profile.social && profile.social.instagram) ? null : (
-                  <a
-                    className="text-white p-2"
-                    href={profile.social.instagram}
-                    target="_blank"
-                  >
-                    <i className="fab fa-instagram fa-2x" />
-                  </a>
-                )}
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-}
+//             <Row style={{"marginTop":"5px"}}>
+//             <Col sm={4} style={{ "margin":"10px"}}>
+//             <h6 className="lead">Reason :</h6>
+//             </Col>
+//             <Col sm={6} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
+//             <h6>{post.reason}</h6>
+//             </Col>
+//             </Row>
 
-export default ProfileHeader;
+//             <Row style={{"marginTop":"5px"}}>
+//             <Col sm={4} style={{ "margin":"10px"}}>
+//             <h6 className="lead">Name of Actor :</h6>
+//             </Col>
+//             <Col sm={6} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
+//             <h6>{post.nameOfActor}</h6>
+//             </Col>
+//             </Row>
+            
+//             <Row style={{"marginTop":"5px"}}>
+//             <Col sm={4} style={{ "margin":"10px"}}>
+//             <h6 className="lead">actor email : </h6>
+//             </Col>
+//             <Col sm={6} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
+//             <h6>{post.actorEmail}</h6>
+//             </Col>
+//             </Row>
+            
+//             <Row style={{"marginTop":"5px"}}>
+//             <Col sm={4} style={{ "margin":"10px"}}>
+//             <h6 className="lead">leave type : </h6>
+//             </Col>
+//             <Col sm={6} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
+//             <h6>{post.leaveType}</h6>
+//             </Col>
+//             </Row>
+            
+//             <Row style={{"marginTop":"5px"}}>
+//             <Col sm={4} style={{ "margin":"10px"}}>
+//             <h6 className="lead">HOD Approval : </h6>
+//             </Col>
+//             <Col sm={6} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
+//             <h6>{post.isHODApproved.toString()}</h6>
+//             </Col>
+//             </Row>
+        
+//             <Row style={{"marginTop":"5px"}}>
+//             <Col sm={4} style={{ "margin":"10px"}}>
+//             <h6 className="lead">Dean Approval : </h6>
+//             </Col>
+//             <Col sm={6} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
+//             <h6>{post.isDeanApproved.toString()}</h6>
+//             </Col>
+//             </Row> */}
+           
+//           </div>
+//     );
+//   }
+// }
+
+// export default ProfileHeader;
