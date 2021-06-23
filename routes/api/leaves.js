@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const passport = require('passport');
-const { sendMail } = require('../../services/mail.js');
 // Post model
 const Leave = require('../../models/Leave');
 // Profile model
@@ -114,19 +113,7 @@ router.post(
       placeToVisit: req.body.placeToVisit,
            
     });
-    sendMail({
-      to: req.body.actorEmail,
-      subject: "You have been selected as the Substitute worker",
-      text: "bar",
-      html: `<p>Dear ${req.body.nameOfActor} ,<br/><br/>
-      <pre>This email is to inform that you have been selected as the Substitute worker by ${req.body.applicantName}
-      
-      
-      If you need to make any  changes or any inquiries , Contact HOD , Dean or Ar
-      
-      Thanks
-      University of Jaffna.</pre>`,
-    });
+    
     newLeave.save().then(leave => res.json(leave));
    
     console.log("success");
