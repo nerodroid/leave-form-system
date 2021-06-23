@@ -246,7 +246,6 @@ class PostItem extends Component {
                     
                   }
 
-
                   
                   {auth.user.userType === 'a-r' && 
                     <button
