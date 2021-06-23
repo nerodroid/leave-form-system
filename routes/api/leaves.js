@@ -111,6 +111,7 @@ router.post(
       location:req.body.location,
       duration:req.body.duration,
       institute: req.body.institute,
+      placeToVisit: req.body.placeToVisit,
            
     });
 
@@ -200,9 +201,6 @@ router.put('/approve/:id/:userType',passport.authenticate('jwt', { session: fals
 
 
 
-
-
-
 router.put('/disapprove/:id/:userType',passport.authenticate('jwt', { session: false }),(req, res) => {
   // Profile.findOneAndUpdate({ isDeanApproved: true }).then(profile => {
   //   Leave.findById(req.params.id)
@@ -250,12 +248,7 @@ router.put('/disapprove/:id/:userType',passport.authenticate('jwt', { session: f
     } 
   });
 
-  
 }
 );
-
-
-
-
 
 module.exports = router;

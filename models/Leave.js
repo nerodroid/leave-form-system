@@ -55,7 +55,16 @@ const LeaveSchema = new Schema({
     },
     institute: {
         type: String,
-    }
+    },
+
+
+    placeToVisit: {
+        type: String,
+    },
+
+
+
+    
 
 
 

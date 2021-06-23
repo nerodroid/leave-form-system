@@ -134,32 +134,98 @@ render() {
           </Col>
           </Row>
           
-          <Row style={{"marginTop":"5px"}}>
-          <Col xs={4} sm={4} style={{ "margin":"10px"}}>
-          <h6 className="lead">Location to : </h6>
-          </Col>
-          <Col xs={4} sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
-          { <h6>{post.location}</h6> }
-          </Col>
-          </Row>
-          <Row style={{"marginTop":"5px"}}>
-          <Col xs={4} sm={4} style={{ "margin":"10px"}}>
-          <h6 className="lead">Duration : </h6>
-          </Col>
-          <Col xs={4} sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
-          { <h6>{post.duration}</h6> }
-          </Col>
-          </Row>
           
-          <Row style={{"marginTop":"5px"}}>
-          <Col xs={4} sm={4} style={{ "margin":"10px"}}>
-          <h6 className="lead">Institute : </h6>
-          </Col>
-          <Col xs={4} sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
-          {<h6>{post.institute}</h6> }
-          </Col>
-          </Row>
+         
+
+          {post.location !== "" && 
+                   <Row style={{"marginTop":"5px"}}>
+                   <Col xs={4} sm={4} style={{ "margin":"10px"}}>
+                   <h6 className="lead">Location to : </h6>
+                   </Col>
+                   <Col xs={4} sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
+                   { <h6>{post.location}</h6> }
+                   </Col>
+                   </Row>
+                    
+                  }
+
+
+          {post.duration !== "" && 
+                    <Row style={{"marginTop":"5px"}}>
+                    <Col xs={4} sm={4} style={{ "margin":"10px"}}>
+                    <h6 className="lead">Duration : </h6>
+                    </Col>
+                    <Col xs={4} sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
+                    { <h6>{post.duration}</h6> }
+                    </Col>
+                    </Row>
+                    
+                    
+                  }
+
+           {post.placeToVisit !== "" && 
+                    <Row style={{"marginTop":"5px"}}>
+                    <Col xs={4} sm={4} style={{ "margin":"10px"}}>
+                    <h6 className="lead">Place to Visit : </h6>
+                    </Col>
+                    <Col xs={4} sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
+                    { <h6>{post.placeToVisit}</h6> }
+                    </Col>
+                    </Row>
+                    
+                    
+                  }
+
+
+
+
+
+          {post.institute !== "" && 
+                    <Row style={{"marginTop":"5px"}}>
+                    <Col xs={4} sm={4} style={{ "margin":"10px"}}>
+                    <h6 className="lead">Institute : </h6>
+                    </Col>
+           
+                    <Col xs={4} sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
+                    {<h6>{post.institute}</h6> }
+                    </Col>
+                    
+                     </Row>
+                    
+                  }
+        
+
+
+          
+
+           {post.institute !== "" && 
+                    <Row style={{"marginTop":"5px"}}>
+                    <Col xs={4} sm={4} style={{ "margin":"10px"}}>
+                    <h6 className="lead">Institute : </h6>
+                    </Col>
+           
+                    <Col xs={4} sm={7} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
+                    {<h6>{post.institute}</h6> }
+                    </Col>
+                    
+                     </Row>
+                    
+                  }
+
+
+
+
+
           </div>
+
+
+
+
+
+
+
+
+
           <div>
             <Row>
             <ReactToPrint

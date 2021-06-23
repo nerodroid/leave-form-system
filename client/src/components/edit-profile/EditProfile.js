@@ -285,9 +285,9 @@ class CreateProfile extends Component {
                 <TextFieldGroup
                   placeholder="* fullName"
                   name="fullName"
-                  value={this.state.firstName}
+                  value={this.state.fullName}
                   onChange={this.onChange}
-                  error={errors.firstName}
+                  error={errors.fullName}
                   info="Full Name"
                 />
             </Col>
