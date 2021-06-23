@@ -195,7 +195,7 @@ class LeaveForm extends Component {
     const { errors } = this.state;
 
     const options = [
-        { label: '* Select a Leave type', value: 0 },
+        { label: '* Select a Leave type', value: null },
         { label: 'Vacation', value: 'vacation' },
         { label: 'Study', value: 'study' },
         { label: 'Duty', value: 'duty' },

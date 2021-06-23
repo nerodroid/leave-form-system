@@ -129,7 +129,6 @@ class CreateProfile extends Component {
 
   render() {
     const { errors, displaySocialInputs } = this.state;
-
     let socialInputs;
 
     if (displaySocialInputs) {
@@ -268,6 +267,8 @@ class CreateProfile extends Component {
                         onChange={this.handleChange}
                         value={this.state.dob}  />
                   </div> 
+
+
 
 
 
