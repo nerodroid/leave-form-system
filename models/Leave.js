@@ -31,20 +31,7 @@ const LeaveSchema = new Schema({
     reason: {
         type: String,
     },
-    nameOfActor: {
-        type: String,
-    },
-    actorEmail: {      
-        type: String, 
-        trim: true 
-    },
-    isHODApproved: {
-        type: Boolean,
-    },
-    isDeanApproved: {
-        type: Boolean,
-    },
-    isARApproved: {
+    isApproved: {
         type: Boolean,
     },
     location: {

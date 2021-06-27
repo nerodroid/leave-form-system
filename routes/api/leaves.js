@@ -98,15 +98,11 @@ router.post(
       applicantName:req.body.applicantName,
       applicantUserType:req.body.applicantUserType,
       leaveType: req.body.leaveType,
-      nameOfActor: req.body.nameOfActor,
       reason: req.body.reason,
       dateTo: req.body.dateTo,
       dateFrom: req.body.dateFrom,
       apointmentDate: req.body.apointmentDate,
-      actorEmail: req.body.actorEmail, 
-      isHODApproved: req.body.isHODApproved,
-      isDeanApproved: req.body.isDeanApproved,
-      isARApproved: req.body.isARApproved,
+      isApproved: req.body.isARApproved,
       location:req.body.location,
       duration:req.body.duration,
       institute: req.body.institute,
@@ -145,25 +141,8 @@ router.delete(
   }
 );
 
-// @route   DELETE api/posts/:id
-// @desc    Delete post
-// @access  Private
 router.put('/approve/:id/:userType',passport.authenticate('jwt', { session: false }),(req, res) => {
-    // Profile.findOneAndUpdate({ isDeanApproved: true }).then(profile => {
-    //   Leave.findById(req.params.id)
-    //     .then(leave => {
-    //       // Check for post owner
-    //       if (leave.user.toString() !== req.user.id) {
-    //         return res
-    //           .status(401)
-    //           .json({ notauthorized: 'User not authorized' });
-    //       }
-
-    //       // Delete
-    //       leave.remove().then(() => res.json({ success: "Leave deleted" }));
-    //     })
-    //     .catch(err => res.status(404).json({ leavenotfound: 'No leave found' }));
-    // });
+  
 
     console.log(req.params.id)
     Leave.findById(req.params.id).then(leave => {
@@ -202,21 +181,7 @@ router.put('/approve/:id/:userType',passport.authenticate('jwt', { session: fals
 
 
 router.put('/disapprove/:id/:userType',passport.authenticate('jwt', { session: false }),(req, res) => {
-  // Profile.findOneAndUpdate({ isDeanApproved: true }).then(profile => {
-  //   Leave.findById(req.params.id)
-  //     .then(leave => {
-  //       // Check for post owner
-  //       if (leave.user.toString() !== req.user.id) {
-  //         return res
-  //           .status(401)
-  //           .json({ notauthorized: 'User not authorized' });
-  //       }
-
-  //       // Delete
-  //       leave.remove().then(() => res.json({ success: "Leave deleted" }));
-  //     })
-  //     .catch(err => res.status(404).json({ leavenotfound: 'No leave found' }));
-  // });
+ 
 
   console.log(req.params.id)
   Leave.findById(req.params.id).then(leave => {

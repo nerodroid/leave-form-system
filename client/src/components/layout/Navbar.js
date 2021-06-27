@@ -18,19 +18,15 @@ class Navbar extends Component {
   render() {
     const { isAuthenticated, user } = this.props.auth;
 
-    const isAdmin = (user.userType === 'dean' || user.userType === 'hod' || user.userType === 'a-r' ) ?  true : false
+    const isAdmin = (user.userType === 'manager' ) ?  true : false
 
 
     const authLinks = (
       <ul className="navbar-nav ml-auto">
-        <li className="nav-item">
-          <Link className="nav-link" to="/dashboard">
-            Home
-          </Link>
-        </li>
+        
         <li className="nav-item">
           <Link className="nav-link" to="/feed">
-            {(user.userType === 'dean' || user.userType === 'hod' || user.userType === 'a-r' ) ? 'Leaves' : 'My Leaves'}
+            {(user.userType === 'manager' ) ? 'Leaves' : 'My Leaves'}
           </Link>
         </li>
 
@@ -41,11 +37,7 @@ class Navbar extends Component {
        
         
 
-        <li className="nav-item">
-          <Link className="nav-link" to="/about">
-            About
-          </Link>
-        </li>
+        
 
 
 
@@ -102,14 +94,7 @@ class Navbar extends Component {
           </button>
 
           <div className="collapse navbar-collapse" id="mobile-nav">
-            <ul className="navbar-nav mr-auto">
-              <li className="nav-item">
-                {/* <Link className="nav-link" to="/profiles">
-                  {' '}
-                  Developers
-                </Link> */}
-              </li>
-            </ul>
+            
             {isAuthenticated ? authLinks : guestLinks}
           </div>
         </div>

@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import PostForm from './PostForm';
-import PostFeed from './PostFeed';
 import Spinner from '../common/Spinner';
-import { getPosts } from '../../actions/postActions';
 import LeaveForm from './LeaveForm';
 import LeaveFeed from './LeaveFeed'
 import { getLeaves, getAllLeaves } from '../../actions/leaveActions';
@@ -30,9 +27,7 @@ class Posts extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              {/* <PostForm /> */}
               <LeaveForm/>
-              {/* {postContent} */}
             </div>
           </div>
         </div>

@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import PostForm from './PostForm';
 import PostFeed from './PostFeed';
 import Spinner from '../common/Spinner';
-//import { getPosts } from '../../actions/postActions';
 import { getLeaves, getAllLeaves } from '../../actions/leaveActions';
 
 
@@ -15,7 +13,7 @@ class Posts extends Component {
 
     const { user } = this.props.auth;
     console.log(user)
-    if(user.userType === 'dean' || user.userType === 'a-r' || user.userType === 'hod'){
+    if(user.userType === 'manager' ){
       this.props.getAllLeaves(user.userType);
     }else {
       this.props.getLeaves(user.id);
@@ -24,7 +22,6 @@ class Posts extends Component {
   }
 
   render() {
-    console.log("asdasda", this.props.post)
     const { posts, loading } = this.props.post;
     let postContent;
 
@@ -39,8 +36,6 @@ class Posts extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              {/* <PostForm /> */}
-             
               {postContent}
             </div>
           </div>

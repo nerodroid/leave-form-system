@@ -118,23 +118,7 @@ class PostItem extends Component {
             </Col>
             </Row>
 
-            <Row style={{"marginTop":"5px"}}>
-            <Col sm={4} style={{ "margin":"10px"}}>
-            <h6 className="lead">Name of Actor :</h6>
-            </Col>
-            <Col sm={6} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
-            <h6>{post.nameOfActor}</h6>
-            </Col>
-            </Row>
-            
-            <Row style={{"marginTop":"5px"}}>
-            <Col sm={4} style={{ "margin":"10px"}}>
-            <h6 className="lead">actor email : </h6>
-            </Col>
-            <Col sm={6} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
-            <h6>{post.actorEmail}</h6>
-            </Col>
-            </Row>
+           
             
             <Row style={{"marginTop":"5px"}}>
             <Col sm={4} style={{ "margin":"10px"}}>
@@ -145,30 +129,14 @@ class PostItem extends Component {
             </Col>
             </Row>
             
-            <Row style={{"marginTop":"5px"}}>
-            <Col sm={4} style={{ "margin":"10px"}}>
-            <h6 className="lead">HOD Approval : </h6>
-            </Col>
-            <Col sm={6} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
-            <h6>{post.isHODApproved.toString()}</h6>
-            </Col>
-            </Row>
-        
-            <Row style={{"marginTop":"5px"}}>
-            <Col sm={4} style={{ "margin":"10px"}}>
-            <h6 className="lead">Dean Approval : </h6>
-            </Col>
-            <Col sm={6} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
-            <h6>{post.isDeanApproved.toString()}</h6>
-            </Col>
-            </Row>
+            
             
             <Row style={{"marginTop":"5px"}}>
             <Col sm={4} style={{ "margin":"10px"}}>
-            <h6 className="lead">AR Approval : </h6>
+            <h6 className="lead">Approval : </h6>
             </Col>
             <Col sm={6} style={{"backgroundColor": "#b0bec5", "padding":"5px", "borderRadius":"3px", "margin":"10px"}}>
-            <h6>{post.isARApproved.toString()}</h6>
+            <h6>{post.isApproved.toString()}</h6>
             </Col>
             </Row>
             
@@ -230,79 +198,11 @@ class PostItem extends Component {
             
             {showActions ? (
               <span>
-                <button
-                  //onClick={this.onLikeClick.bind(this, post._id)}
-                  type="button"
-                  className="btn btn-light mr-1"
-                >
-                  <i
-                    // className={classnames('fas fa-thumbs-up', {
-                    //   'text-info': this.findUserLike(post.likes)
-                    // })}
-                  />
-                  {/* <span className="badge badge-light">{post.likes.length}</span> */}
-                </button>
-                {/* <button
-                  onClick={this.onUnlikeClick.bind(this, post._id)}
-                  type="button"
-                  className="btn btn-light mr-1"
-                >
-                  <i className="text-secondary fas fa-thumbs-down" />
-                </button> */}
-                {/* <Link to={`/post/${post._id}`} className="btn btn-info mr-1">
-                  Comments
-                </Link> */}
+                
+                
                 
 
-                  {auth.user.userType === 'dean' && 
-                    <button
-                      onClick={this.onClickApprove.bind(this, post._id)}
-                      type="button"
-                      style={{"backgroundColor": "#546e7a", "padding":"5px", "borderRadius":"3px","width":"100px", "float":"right", "margin":"10px" }}> 
-                        Approve
-                    </button>
-                    
-                  }
-
-
-                  
-                  {auth.user.userType === 'dean' && 
-                    <button
-                      onClick={this.onClickDisapprove.bind(this, post._id)}
-                      type="button"
-                      style={{"backgroundColor": "#bf360c", "padding":"5px", "borderRadius":"3px","width":"100px", "float":"right", "margin":"10px" }}> 
-                    
-                        Decline
-                    </button>
-                    
-                  }
-
-                  
-                  {auth.user.userType === 'a-r' && 
-                    <button
-                      onClick={this.onClickApprove.bind(this, post._id)}
-                      type="button"
-                      style={{"backgroundColor": "#546e7a", "padding":"5px", "borderRadius":"3px","width":"100px", "float":"right", "margin":"10px"}}> 
-                      
-                        Approve
-                    </button>
-                  }
-
-
-
-                   {auth.user.userType === 'a-r' && 
-                    <button
-                      onClick={this.onClickDisapprove.bind(this, post._id)}
-                      type="button"
-                      style={{"backgroundColor": "#546e7a", "padding":"5px", "borderRadius":"3px","width":"100px", "float":"right", "margin":"10px" }}> 
-                      <i className="fas fa-times" />
-                        Decline
-                    </button>
-                  }
-
-
-
-
+                 
                   {auth.user.userType === 'hod' && 
                     <button
                       onClick={this.onClickApprove.bind(this, post._id)}

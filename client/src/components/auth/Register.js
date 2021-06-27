@@ -62,10 +62,10 @@ class Register extends Component {
      
      // { label: 'Dean', value: 'dean' },
      // { label: 'A R', value: 'a-r' },
-      { label: 'Academic', value: 'academic' },
-      { label: 'Non-Academic', value: 'non-academic' },
-     
       //{ label: 'HOD', value: 'hod' },
+    
+      { label: 'Manager', value: 'manager' },
+      { label: 'Staff', value: 'staff' },
       
     ];
 
@@ -113,7 +113,7 @@ class Register extends Component {
                   value={this.state.email}
                   onChange={this.onChange}
                   error={errors.email}
-                  info="This site uses Gravatar so if you want a profile image, use a Gravatar email"
+                  
                 />
 
             <Row>

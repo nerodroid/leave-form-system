@@ -128,18 +128,7 @@ router.post(
     if (req.body.phoneNo) profileFields.phoneNo = req.body.phoneNo;
     if (req.body.dob)profileFields.dob = req.body.dob;
     if (req.body.empId)profileFields.empId = req.body.empId;
-    // Skills - Spilt into array
-    // if (typeof req.body.skills !== 'undefined') {
-    //   profileFields.skills = req.body.skills.split(',');
-    // }
-
-    // Social
     profileFields.social = {};
-    // if (req.body.youtube) profileFields.social.youtube = req.body.youtube;
-    // if (req.body.twitter) profileFields.social.twitter = req.body.twitter;
-    // if (req.body.facebook) profileFields.social.facebook = req.body.facebook;
-    // if (req.body.linkedin) profileFields.social.linkedin = req.body.linkedin;
-    // if (req.body.instagram) profileFields.social.instagram = req.body.instagram;
 
     Profile.findOne({ user: req.user.id }).then(profile => {
       if (profile) {

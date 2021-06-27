@@ -22,12 +22,8 @@ class LeaveForm extends Component {
       applicantName: '',
       applicantUserType:'',
       reason: '',
-      nameOfActor: '',
-      actorEmail: '',
       leaveType: null,
-      isHODApproved: false,
-      isDeanApproved: false,
-      isARApproved: false,
+      isApproved: false,
       location:'',
       duration:'',
       institute: '',
@@ -45,10 +41,7 @@ class LeaveForm extends Component {
 
   componentWillReceiveProps(newProps) {
 
-    // if (!newProps.errors) {
-      
-    //   alert("Leave Success")
-    // } 
+  
     console.log(newProps.errors)
 
     if (newProps.errors) {
@@ -58,13 +51,6 @@ class LeaveForm extends Component {
     }
 
 
-
-
-
-  
-
-
-    //this.state.push('/dashboard');
   
 
   }
@@ -80,9 +66,6 @@ class LeaveForm extends Component {
       
     e.preventDefault();
     const { user } = this.props.auth;
-    //console.log(user.name)
-     
-    //console.log(user.email)
 
     const newLeave = {
       applicantName: user.name,
@@ -92,11 +75,7 @@ class LeaveForm extends Component {
       dateFrom: this.state.dateFrom,
       apointmentDate: this.state.apointmentDate,
       reason: this.state.reason,      
-      nameOfActor: this.state.nameOfActor,
-      actorEmail: this.state.actorEmail, 
-      isHODApproved: false,
-      isDeanApproved: false,
-      isARApproved: false,
+      isApproved: false,
       location:this.state.location,
       duration:this.state.duration,
       institute: this.state.institute,
@@ -108,16 +87,6 @@ class LeaveForm extends Component {
     
     
 
-    // const { user } = this.props.auth;
-
-    // const newPost = {
-    //   text: this.state.text,
-    //   name: user.name,
-    //   avatar: user.avatar
-    // };
-
-    // this.props.addPost(newPost);
-    // this.setState({ text: '' });
   }
 
 
@@ -129,10 +98,7 @@ class LeaveForm extends Component {
 
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
-    // this.setState({ text: '' });
-
-    //const [startDate, setStartDate] = useState(new Date());
-
+   
   }
 
   handleChange(date) {
@@ -143,62 +109,16 @@ class LeaveForm extends Component {
   }
   
 
-//   ss = {
-//     user: {
-//         type: Schema.Types.ObjectId,
-//         ref: 'users'
-//     },
 
-//     dateTo: {
-//         type: Date,
-//     },
-//     dateFrom: {
-//         type: Date,
-//     },
-//     apointmentDate: {
-//         type: Date,
-//     },
-
-//     reason: {
-//         type: String,
-//     },
-//     nameOfActor: {
-//         type: String,
-//     },
-//     actorEmail: { type: String, trim: true },
-//     isHODApproved: {
-//         type: Boolean,
-//     },
-//     isDeanApproved: {
-//         type: Boolean,
-//     },
-//     isARApproved: {
-//         type: Boolean,
-//     },
-
-// }
-
-//   handleChange = leaveType => {
-//     this.setState({ leaveType });
-//     console.log(`Option selected:`, leaveType);
-//   };
-
-
-//   handleChange = (leaveType) => {
-//     this.setState({ leaveType });
-//     console.log(`Option selected:`, leaveType);
-//   }
-
-    
 
   render() {
     const { errors } = this.state;
 
     const options = [
         { label: '* Select a Leave type', value: null },
-        { label: 'Vacation', value: 'vacation' },
-        { label: 'Study', value: 'study' },
-        { label: 'Duty', value: 'duty' },
+        { label: 'Casual', value: 'casual' },
+        { label: 'Anual', value: 'anual' },
+        { label: 'Medical', value: 'medical' },
       ];
 
 
@@ -220,15 +140,6 @@ class LeaveForm extends Component {
                   error={errors.leaveType}
                   info=""
                 />
-                {/* <InputGroup
-                  placeholder="Date to"
-                  name="dateTo"
-                  value={this.state.dateTo}
-                  onChange={this.onChange}
-                  error={errors.text}
-                /> */}
-
-                
               <Row>
               <Col md="3">
 
@@ -272,20 +183,7 @@ class LeaveForm extends Component {
                 </Col>
                 </Row>                     
                 <br/>
-                {/* <InputGroup
-                  placeholder="Date from"
-                  name="dateFrom"
-                  value={this.state.dateFrom}
-                  onChange={this.onChange}
-                  error={errors.text}
-                />
-                <InputGroup
-                  placeholder="Appointment Date"
-                  name="apointmentDate"
-                  value={this.state.apointmentDate}
-                  onChange={this.onChange}
-                  error={errors.text}
-                /> */}
+               
                 <InputGroup
                   placeholder="Reason"
                   name="reason"
@@ -309,7 +207,7 @@ class LeaveForm extends Component {
                   error={errors.actorEmail}
                 />
                 
-                {this.state.leaveType === 'vacation' && 
+                {this.state.leaveType === 'casual' && 
                     <div>
                         <InputGroup
                             placeholder="Location"
@@ -327,7 +225,7 @@ class LeaveForm extends Component {
                         />
                     </div>
                 }
-                {this.state.leaveType === 'study' && 
+                {this.state.leaveType === 'medical' && 
                     <div>
                         <InputGroup
                             placeholder="Institute"
@@ -341,7 +239,7 @@ class LeaveForm extends Component {
 
 
 
-                 {this.state.leaveType === 'duty' && 
+                 {this.state.leaveType === 'anual' && 
                     <div>
                         <InputGroup
                             placeholder="placeToVisit"
